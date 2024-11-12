@@ -1,3 +1,6 @@
+import OurService from "../components/OurService";
+import Stats from "../components/Stats";
+
 export default function Home() {
   return (
     <div>
@@ -53,6 +56,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Stats/>
+      <OurService/>
     </div>
   );
 }
