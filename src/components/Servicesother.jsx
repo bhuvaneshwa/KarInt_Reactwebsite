@@ -1,0 +1,57 @@
+export default function Servicesother() {
+    return (
+      <div className="bg-gray-200">
+        {/* First Section */}
+        <section className="flex flex-col md:flex-row justify-around items-center mx-4 h-full space-y-4 md:space-y-0 md:space-x-8">
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl font-bold">Giving you the EDGE!</h1>
+            <h5 className="text-lg font-light mt-2">
+              We generate value for your business by offering:
+            </h5>
+          </div>
+  
+          <div className="hidden md:block w-px bg-gray-400 h-24"></div> {/* Divider */}
+  
+          <div className="text-center md:text-left">
+            <h1 className="text-2xl font-semibold">
+              Customized Tools • Expert Insights • High Quality
+            </h1>
+          </div>
+  
+          <div className="text-center md:text-left">
+            <p className="text-lg font-light">
+              Accelerated delivery to cut down project timelines
+            </p>
+          </div>
+        </section>
+  
+        {/* Second Section */}
+        <section>
+          <div className="grid grid-cols-1 md:grid-cols-2  items-center">
+            {/* Image Div */}
+            <div className="relative w-full h-60 md:h-80">
+              <img
+                src="/hm_fold_3.jpg"
+                className="w-full h-full object-cover "
+                alt="Image"
+              />
+            </div>
+  
+            {/* Text and Button Div */}
+            <div className="bg-black h-full text-white p-8  flex flex-col justify-center items-start space-y-4">
+              <h1 className="text-3xl md:text-5xl font-semibold">
+                Looking forward to business growth?
+              </h1>
+              <h4 className="text-lg font-light">
+                Let us know how we can enable you to achieve success faster.
+              </h4>
+              <button className="mt-4 px-6 py-2 bg-[#f86a04] text-white font-semibold rounded-md hover:bg-[#e65c00] transition duration-300">
+                Contact us
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+  
