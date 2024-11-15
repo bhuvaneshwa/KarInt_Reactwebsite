@@ -9,7 +9,7 @@ export default function NewsletterSubscription() {
                 STAY IN THE LOOP<span className="text-gray-800">.</span>
               </h1>
               <p className="text-gray-500 mt-2">
-                Help us keep you updated with Foraysoft’s latest news.
+                Help us keep you updated with At KAR International Infotech latest news.
               </p>
             </div>
   
@@ -18,9 +18,9 @@ export default function NewsletterSubscription() {
               <input
                 type="email"
                 placeholder="Subscribe to our newsletter enter email ID here"
-                className="w-full md:w-96 px-4 py-3 border border-gray-300 rounded-l-md focus:outline-none"
+                className="w-full md:w-96 px-4 py-3 border border-gray-300  focus:outline-none"
               />
-              <button className="bg-black text-white px-6 py-3 font-semibold rounded-r-md hover:bg-gray-900 transition duration-200">
+              <button className="bg-black text-white px-6 py-3 font-semibold  hover:bg-gray-900 transition duration-200">
                 Subscribe
               </button>
             </div>

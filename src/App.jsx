@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import About from "./pages/About";
 import Product from "./pages/Product";
 import Services from "./pages/Services";
+import Team from "./components/Team";
+import Career from "./components/Career";
 
 export default function App() {
   return (
@@ -23,6 +25,9 @@ export default function App() {
           <Route path="about" element={<About/>} />
           <Route path="product" element={<Product />} />
           <Route path="services" element={<Services />} />
+
+          <Route path="/other/team" element={<Team />} />
+          <Route path="/other/career" element={<Career />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

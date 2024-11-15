@@ -82,7 +82,7 @@ export default function OurService() {
               <div className="flex-1">
                 <h2 className="text-2xl font-semibold mb-2">{service.title}</h2>
                 <p className="text-lg text-gray-800 mb-4">{service.description}</p>
-                <button className="px-6 py-2 mt-4 text-lg font-semibold text-white bg-[#f86a04] rounded-md hover:bg-[#e65c00]">
+                <button className="px-6 py-2 mt-4 text-lg font-semibold text-white bg-[#f86a04]  hover:bg-[#e65c00]">
                   Learn More
                 </button>
               </div>
@@ -93,9 +93,13 @@ export default function OurService() {
                   className="image-cover "
                 />
               </div>
+              
             </div>
+            
           ))}
+          
         </div>
+       
       </div>
     </div>
   );

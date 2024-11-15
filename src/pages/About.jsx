@@ -1,3 +1,5 @@
+import Founder from "../components/Founder";
+import Testimonial from "../components/Testimonial";
 import VisionMission from "../components/VisionMission";
 import CountUp from 'react-countup';
 export default function About() {
@@ -94,6 +96,8 @@ export default function About() {
       </div>
     </section>
       <VisionMission/>
+      <Founder/>
+      <Testimonial/>
     </div>
   );
 }

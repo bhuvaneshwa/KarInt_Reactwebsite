@@ -13,28 +13,28 @@ export default function Contact() {
 
           <form className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
             <div>
-              <label htmlFor="firstName" className="block text-lg font-medium">First Name</label>
-              <input type="text" id="firstName" className="w-full p-3 bg-gray-800 rounded text-white" placeholder="First Name" />
+              {/* <label htmlFor="firstName" className="block text-lg font-medium">First Name</label> */}
+              <input type="text" id="firstName" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="First Name" />
             </div>
             <div>
-              <label htmlFor="lastName" className="block text-lg font-medium">Last Name</label>
-              <input type="text" id="lastName" className="w-full p-3 bg-gray-800 rounded text-white" placeholder="Last Name" />
+              {/* <label htmlFor="lastName" className="block text-lg font-medium">Last Name</label> */}
+              <input type="text" id="lastName" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Last Name" />
             </div>
             <div>
-              <label htmlFor="phone" className="block text-lg font-medium">Phone</label>
-              <input type="text" id="phone" className="w-full p-3 bg-gray-800 rounded text-white" placeholder="Phone Number" />
+              {/* <label htmlFor="phone" className="block text-lg font-medium">Phone</label> */}
+              <input type="text" id="phone" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Phone Number" />
             </div>
             <div>
-              <label htmlFor="email" className="block text-lg font-medium">Email</label>
-              <input type="email" id="email" className="w-full p-3 bg-gray-800 rounded text-white" placeholder="Email Address" />
+              {/* <label htmlFor="email" className="block text-lg font-medium">Email</label> */}
+              <input type="email" id="email" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Email Address" />
             </div>
             <div>
-              <label htmlFor="companyName" className="block text-lg font-medium">Company Name</label>
-              <input type="text" id="companyName" className="w-full p-3 bg-gray-800 rounded text-white" placeholder="Company Name" />
+              {/* <label htmlFor="companyName" className="block text-lg font-medium">Company Name</label> */}
+              <input type="text" id="companyName" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Company Name" />
             </div>
             <div>
-              <label htmlFor="option" className="block text-lg font-medium">Select an Option</label>
-              <select id="option" className="w-full p-3 bg-gray-800 rounded text-white">
+              {/* <label htmlFor="option" className="block text-lg font-medium">Select an Option</label> */}
+              <select id="option" className="w-full p-3 bg-gray-200 rounded text-black">
                 <option value="">Choose an option</option>
                 <option value="Consulting">Consulting</option>
                 <option value="Partnership">Partnership</option>
@@ -42,11 +42,11 @@ export default function Contact() {
               </select>
             </div>
             <div className="md:col-span-2">
-              <label htmlFor="message" className="block text-lg font-medium">Message</label>
-              <textarea id="message" rows="4" className="w-full p-3 bg-gray-800 rounded text-white" placeholder="Your message"></textarea>
+              {/* <label htmlFor="message" className="block text-lg font-medium">Message</label> */}
+              <textarea id="message" rows="4" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Your message"></textarea>
             </div>
             <div className="md:col-span-2">
-              <button type="submit" className="w-full p-4 bg-[#f86a04] text-white text-lg uppercase rounded">Submit</button>
+              <button type="submit" className="w-full p-4 bg-[#f86a04] text-white text-lg uppercase">Submit</button>
             </div>
           </form>
         </div>
