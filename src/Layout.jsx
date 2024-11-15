@@ -24,20 +24,20 @@ export default function Layout() {
         <div className="container flex justify-between h-16 mx-auto">
           {/* Logo Section */}
           <div className="flex items-center">
-            <a
+            <Link
               rel="noopener noreferrer"
-              href="#"
+              to="/"
               aria-label="Back to homepage"
               className="flex items-center p-2"
             >
               <img src="/logo.png" alt="Logo" className="w-12 h-8" />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">
-              <Link to="/" className="flex items-center px-4 -mb-1 hover:text-primary">
+              <Link to="/" className="flex items-center px-4 -mb-1  hover:text-primary">
                 Home
               </Link>
             </li>

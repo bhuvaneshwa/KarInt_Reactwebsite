@@ -3,7 +3,7 @@ export default function Services() {
     {
       title: "Website Design",
       description: "Create a stunning and responsive website design tailored to your business needs.",
-      image: "/images/website-design.jpg", // Update this path as needed
+      image: "/banner1.jpg",
     },
     {
       title: "Ecommerce Website",
@@ -69,19 +69,35 @@ export default function Services() {
 
   return (
     <div className="container mx-auto my-10 px-8">
-      <h2 className="text-5xl font-extralight text-start mb-8">Our <br/> <span className="text-[#f86a04]">Services</span></h2>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <h2 className="text-5xl font-extralight text-start mb-8">
+        Our <br /> <span className="text-[#f86a04]">Services</span>
+      </h2>
+      <div className="grid grid-cols-1 gap-8">
         {services.map((service, index) => (
           <div
             key={index}
-            className="p-6 border rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:bg-blue-50 text-center"
+            className={`group flex flex-col md:flex-row ${
+              index % 2 === 0 ? "md:flex-row-reverse" : ""
+            } items-center p-6 border rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105`}
           >
-            <img src={service.image} alt={service.title} className="w-full h-40 object-cover rounded-t-lg mb-4" />
-            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-            <p className="text-gray-700 mb-4">{service.description}</p>
-            <button className="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors">
-              Know Now
-            </button>
+            {/* Image Section */}
+            <div className="w-full md:w-1/2 overflow-hidden rounded-lg">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-40 md:h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            {/* Text Section */}
+            <div className="md:w-1/2 md:px-6 text-center md:text-left">
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-[#f86a04] transition-colors duration-300">
+                {service.title}
+              </h3>
+              <p className="text-gray-700 mb-4">{service.description}</p>
+              <button className="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                Know Now
+              </button>
+            </div>
           </div>
         ))}
       </div>

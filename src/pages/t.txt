@@ -1,1 +1,71 @@
 f86a04
+
+
+{
+      title: "Website Design",
+      description: "Create a stunning and responsive website design tailored to your business needs.",
+      image: "/banner1.jpg", // Update this path as needed
+    },
+    {
+      title: "Ecommerce Website",
+      description: "Build a robust eCommerce platform to enhance your online sales and customer experience.",
+      image: "/images/ecommerce-website.jpg",
+    },
+    {
+      title: "Mobile Application",
+      description: "Develop high-performance mobile applications for iOS and Android platforms.",
+      image: "/images/mobile-application.jpg",
+    },
+    {
+      title: "Branding & Advertising",
+      description: "Strengthen your brand identity with effective advertising strategies and visuals.",
+      image: "/images/branding-advertising.jpg",
+    },
+    {
+      title: "Graphic Designs",
+      description: "Engage your audience with creative and eye-catching graphic designs.",
+      image: "/images/graphic-designs.jpg",
+    },
+    {
+      title: "Video Production-Animation",
+      description: "Create impactful videos and animations to tell your story and attract customers.",
+      image: "/images/video-production.jpg",
+    },
+    {
+      title: "Content Writing Services",
+      description: "Get compelling content that resonates with your audience and boosts engagement.",
+      image: "/images/content-writing.jpg",
+    },
+    {
+      title: "Website Design & Development",
+      description: "Complete website solutions from design to development and deployment.",
+      image: "/images/website-development.jpg",
+    },
+    {
+      title: "Digital & Social Media Marketing",
+      description: "Enhance your online presence with our digital and social media marketing services.",
+      image: "/images/social-media-marketing.jpg",
+    },
+    {
+      title: "Packaging Design",
+      description: "Stand out with unique and attractive packaging designs for your products.",
+      image: "/images/packaging-design.jpg",
+    },
+    {
+      title: "SEO & Marketing",
+      description: "Boost your search engine rankings and attract more organic traffic with our SEO services.",
+      image: "/images/seo-marketing.jpg",
+    },
+    {
+      title: "Event Ideation",
+      description: "Plan memorable events with our ideation, design, and execution services.",
+      image: "/images/event-ideation.jpg",
+    },
+    {
+      title: "Design Execution & Management",
+      description: "Ensure your designs are executed flawlessly with our management expertise.",
+      image: "/images/design-execution.jpg",
+    },
+
+    
+      ];
