@@ -18,7 +18,7 @@ export default function Services() {
     {
       title: "Branding & Advertising",
       description: "Strengthen your brand identity with effective advertising strategies and visuals.",
-      image: "/images/branding-advertising.jpg",
+      image: "/brand-branding-advertising.jpg",
     },
     {
       title: "Graphic Designs",
@@ -28,7 +28,7 @@ export default function Services() {
     {
       title: "Video Production-Animation",
       description: "Create impactful videos and animations to tell your story and attract customers.",
-      image: "/images/video-production.jpg",
+      image: "/banner1.jpg",
     },
     {
       title: "Content Writing Services",
@@ -43,7 +43,7 @@ export default function Services() {
     {
       title: "Digital & Social Media Marketing",
       description: "Enhance your online presence with our digital and social media marketing services.",
-      image: "/images/social-media-marketing.jpg",
+      image: "/social-media-marketing.jpg",
     },
     {
       title: "Packaging Design",
@@ -68,34 +68,36 @@ export default function Services() {
   ];
 
   return (
-    <div className="container mx-auto my-10 px-8">
-      <h2 className="text-5xl font-extralight text-start mb-8">
+    <div className="container mx-auto my-10 px-4 sm:px-8">
+      {/* Section Title */}
+      <h2 className="text-4xl sm:text-5xl font-extralight text-center sm:text-start mb-12">
         Our <br /> <span className="text-[#f86a04]">Services</span>
       </h2>
-      <div className="grid grid-cols-1 gap-8">
+
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
           <div
             key={index}
-            className={`group flex flex-col md:flex-row ${
-              index % 2 === 0 ? "md:flex-row-reverse" : ""
-            } items-center p-6 border rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105`}
+            className="group flex flex-col items-center p-6 border rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
           >
             {/* Image Section */}
-            <div className="w-full md:w-1/2 overflow-hidden rounded-lg">
+            <div className="w-full h-40 sm:h-52 md:h-64 overflow-hidden rounded-lg">
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-40 md:h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
             </div>
+
             {/* Text Section */}
-            <div className="md:w-1/2 md:px-6 text-center md:text-left">
+            <div className="text-center mt-4">
               <h3 className="text-xl font-semibold mb-2 group-hover:text-[#f86a04] transition-colors duration-300">
                 {service.title}
               </h3>
               <p className="text-gray-700 mb-4">{service.description}</p>
-              <button className="mt-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-300">
-                Know Now
+              <button className="mt-4 px-6 py-2 bg-primary text-white font-semibold  hover:bg-blue-600 transition-colors duration-300">
+                Know more
               </button>
             </div>
           </div>

@@ -1,22 +1,44 @@
-import { Link, Outlet } from "react-router-dom";
-import { useState } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
+  const location = useLocation();
+
+  // Close dropdowns and menus on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
+    setIsMobileDropdownOpen(false);
+  }, [location]);
+
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const toggleMobileDropdown = () => {
-    setIsMobileDropdownOpen(!isMobileDropdownOpen);
+    setIsMobileDropdownOpen((prev) => !prev);
   };
+
+  const navLinks = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About Us" },
+    { path: "/products", label: "Our Products" },
+    { path: "/services", label: "Our Services" },
+    { path: "/contact", label: "Contact Us" },
+  ];
+
+  const dropdownLinks = [
+    { path: "/other/team", label: "Our Team" },
+    { path: "/other/career", label: "Career Page" },
+  ];
 
   return (
     <div>
@@ -24,77 +46,63 @@ export default function Layout() {
         <div className="container flex justify-between h-16 mx-auto">
           {/* Logo Section */}
           <div className="flex items-center">
-            <Link
-              rel="noopener noreferrer"
-              to="/"
-              aria-label="Back to homepage"
-              className="flex items-center p-2"
-            >
-              <img src="/logo.png" alt="Logo" className="w-12 h-8" />
-            </Link>
-          </div>
+  <Link
+    to="/"
+    aria-label="Back to homepage"
+    className="flex items-center p-2"
+  >
+    <img
+      src="/logo.png"
+      alt="Company Logo"
+      className="h-auto w-12" // Adjust as per design
+    />
+  </Link>
+</div>
+
 
           {/* Desktop Menu */}
           <ul className="items-stretch hidden space-x-3 lg:flex">
-            <li className="flex">
-              <Link to="/" className="flex items-center px-4 -mb-1  hover:text-primary">
-                Home
-              </Link>
-            </li>
-            <li className="flex">
-              <Link to="/about" className="flex items-center px-4 -mb-1 hover:text-primary">
-                About Us
-              </Link>
-            </li>
-            <li className="flex">
-              <Link to="/products" className="flex items-center px-4 -mb-1 hover:text-primary">
-                Our Products
-              </Link>
-            </li>
-            <li className="flex">
-              <Link to="/services" className="flex items-center px-4 -mb-1 hover:text-primary">
-                Our Services
-              </Link>
-            </li>
+            {navLinks.map((link) => (
+              <li className="flex" key={link.path}>
+                <Link
+                  to={link.path}
+                  className="flex items-center px-4 -mb-1 hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
             <li className="relative flex">
               <button
                 onClick={toggleDropdown}
                 className="flex items-center px-4 -mb-1 hover:text-primary focus:outline-none"
+                aria-expanded={isDropdownOpen}
               >
                 More
               </button>
               {isDropdownOpen && (
-                <ul className="absolute top-full mt-2 bg-white text-black dark:bg-white shadow-lg  py-2 w-48 left-0">
-                  <li>
-                    <Link to="/other/team" className="block px-4 py-2 hover:bg-primary dark:hover:bg-primary  hover:text-white">
-                      Our Team
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/other/career" className="block px-4 py-2 hover:bg-primary dark:hover:bg-primary  hover:text-white">
-                     Career page
-                    </Link>
-                  </li>
-                  {/* <li>
-                    <Link to="/other/subpage3" className="block px-4 py-2 hover:bg-primary dark:hover:bg-primary  hover:text-white">
-                      Subpage 3
-                    </Link>
-                  </li> */}
+                <ul className="absolute top-full mt-2 bg-white text-black dark:bg-white shadow-lg py-2 w-48 left-0">
+                  {dropdownLinks.map((link) => (
+                    <li key={link.path}>
+                      <Link
+                        to={link.path}
+                        className="block px-4 py-2 hover:bg-primary dark:hover:bg-primary hover:text-white"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               )}
             </li>
-            <li className="flex">
-              <Link to="/contact" className="flex items-center px-4 -mb-1 hover:text-primary">
-                Contact Us
-              </Link>
-            </li>
-            
           </ul>
 
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMobileMenu}
             className="p-4 lg:hidden focus:outline-none"
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -117,55 +125,36 @@ export default function Layout() {
         {isMobileMenuOpen && (
           <div className="lg:hidden">
             <ul className="space-y-2 p-4 dark:bg-black dark:text-white">
-              <li>
-                <Link to="/" className="block px-4 py-2 hover:text-primary">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="block px-4 py-2 hover:text-primary">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/products" className="block px-4 py-2 hover:text-primary">
-                  Our Products
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="block px-4 py-2 hover:text-primary">
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="block px-4 py-2 hover:text-primary">
-                  Contact Us
-                </Link>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="block px-4 py-2 hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <button
                   onClick={toggleMobileDropdown}
                   className="w-full text-left block px-4 py-2 hover:text-primary focus:outline-none"
+                  aria-expanded={isMobileDropdownOpen}
                 >
-                  Others
+                  More
                 </button>
                 {isMobileDropdownOpen && (
                   <ul className="pl-4 space-y-2">
-                    <li>
-                      <Link to="/other/subpage1" className="block px-4 py-2 hover:text-primary">
-                        Subpage 1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/other/subpage2" className="block px-4 py-2 hover:text-primary">
-                        Subpage 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/other/subpage3" className="block px-4 py-2 hover:text-primary">
-                        Subpage 3
-                      </Link>
-                    </li>
+                    {dropdownLinks.map((link) => (
+                      <li key={link.path}>
+                        <Link
+                          to={link.path}
+                          className="block px-4 py-2 hover:text-primary"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 )}
               </li>

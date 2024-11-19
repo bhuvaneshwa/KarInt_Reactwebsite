@@ -1,40 +1,91 @@
+import { useState } from "react";
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    companyName: "",
+    option: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if all fields are filled
+    const isEmptyField = Object.values(formData).some((field) => field.trim() === "");
+    if (isEmptyField) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Your message has been sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          companyName: "",
+          option: "",
+          message: "",
+        });
+      } else {
+        alert("Failed to send your message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       <div className="bg-black text-white p-16">
-        <h1 className="text-6xl uppercase">Let&apos;s take your business <br /> to places, together!</h1>
-        <h4>We work with you to nurture your business towards success faster.</h4>
+        <h1 className="text-6xl uppercase">Let&apos;s take your <span className="text-primary">business <br /> to places, together!</span></h1>
+        <h4 className="mt-5">We work with you to nurture your business towards success faster.</h4>
 
         <div className="pt-10">
-          <h1 className="text-5xl uppercase">
-            <span className="text-[#f86a04] italic">The Impact</span> <br />
-            We Have Made
-          </h1>
-
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
+            {["firstName", "lastName", "phone", "email", "companyName"].map((field) => (
+              <div key={field}>
+                <input
+                  type="text"
+                  id={field}
+                  className="w-full p-3 bg-gray-200 rounded text-black"
+                  placeholder={field.replace(/([A-Z])/g, " $1").trim()}
+                  value={formData[field]}
+                  onChange={handleChange}
+                />
+              </div>
+            ))}
             <div>
-              {/* <label htmlFor="firstName" className="block text-lg font-medium">First Name</label> */}
-              <input type="text" id="firstName" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="First Name" />
-            </div>
-            <div>
-              {/* <label htmlFor="lastName" className="block text-lg font-medium">Last Name</label> */}
-              <input type="text" id="lastName" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Last Name" />
-            </div>
-            <div>
-              {/* <label htmlFor="phone" className="block text-lg font-medium">Phone</label> */}
-              <input type="text" id="phone" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Phone Number" />
-            </div>
-            <div>
-              {/* <label htmlFor="email" className="block text-lg font-medium">Email</label> */}
-              <input type="email" id="email" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Email Address" />
-            </div>
-            <div>
-              {/* <label htmlFor="companyName" className="block text-lg font-medium">Company Name</label> */}
-              <input type="text" id="companyName" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Company Name" />
-            </div>
-            <div>
-              {/* <label htmlFor="option" className="block text-lg font-medium">Select an Option</label> */}
-              <select id="option" className="w-full p-3 bg-gray-200 rounded text-black">
+              <select
+                id="option"
+                className="w-full p-3 bg-gray-200 rounded text-black"
+                value={formData.option}
+                onChange={handleChange}
+              >
                 <option value="">Choose an option</option>
                 <option value="Consulting">Consulting</option>
                 <option value="Partnership">Partnership</option>
@@ -42,15 +93,27 @@ export default function Contact() {
               </select>
             </div>
             <div className="md:col-span-2">
-              {/* <label htmlFor="message" className="block text-lg font-medium">Message</label> */}
-              <textarea id="message" rows="4" className="w-full p-3 bg-gray-200 rounded text-black" placeholder="Your message"></textarea>
+              <textarea
+                id="message"
+                rows="4"
+                className="w-full p-3 bg-gray-200 rounded text-black"
+                placeholder="Your message"
+                value={formData.message}
+                onChange={handleChange}
+              ></textarea>
             </div>
             <div className="md:col-span-2">
-              <button type="submit" className="w-full p-4 bg-[#f86a04] text-white text-lg uppercase">Submit</button>
+              <button
+                type="submit"
+                className="w-full p-4 bg-[#f86a04] text-white text-lg uppercase"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
-  )
+  );
 }
