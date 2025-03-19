@@ -30,7 +30,7 @@ export default function Layout() {
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About Us" },
-    { path: "/products", label: "Our Products" },
+    { path: "/product", label: "Our Products" },
     { path: "/services", label: "Our Services" },
     { path: "/contact", label: "Contact Us" },
   ];

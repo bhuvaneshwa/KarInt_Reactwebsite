@@ -1,103 +1,27 @@
 export default function Services() {
   const services = [
-    {
-      title: "Website Design",
-      description: "Create a stunning and responsive website design tailored to your business needs.",
-      image: "/banner1.jpg",
-    },
-    {
-      title: "Ecommerce Website",
-      description: "Build a robust eCommerce platform to enhance your online sales and customer experience.",
-      image: "/images/ecommerce-website.jpg",
-    },
-    {
-      title: "Mobile Application",
-      description: "Develop high-performance mobile applications for iOS and Android platforms.",
-      image: "/images/mobile-application.jpg",
-    },
-    {
-      title: "Branding & Advertising",
-      description: "Strengthen your brand identity with effective advertising strategies and visuals.",
-      image: "/brand-branding-advertising.jpg",
-    },
-    {
-      title: "Graphic Designs",
-      description: "Engage your audience with creative and eye-catching graphic designs.",
-      image: "/images/graphic-designs.jpg",
-    },
-    {
-      title: "Video Production-Animation",
-      description: "Create impactful videos and animations to tell your story and attract customers.",
-      image: "/banner1.jpg",
-    },
-    {
-      title: "Content Writing Services",
-      description: "Get compelling content that resonates with your audience and boosts engagement.",
-      image: "/images/content-writing.jpg",
-    },
-    {
-      title: "Website Design & Development",
-      description: "Complete website solutions from design to development and deployment.",
-      image: "/images/website-development.jpg",
-    },
-    {
-      title: "Digital & Social Media Marketing",
-      description: "Enhance your online presence with our digital and social media marketing services.",
-      image: "/social-media-marketing.jpg",
-    },
-    {
-      title: "Packaging Design",
-      description: "Stand out with unique and attractive packaging designs for your products.",
-      image: "/images/packaging-design.jpg",
-    },
-    {
-      title: "SEO & Marketing",
-      description: "Boost your search engine rankings and attract more organic traffic with our SEO services.",
-      image: "/images/seo-marketing.jpg",
-    },
-    {
-      title: "Event Ideation",
-      description: "Plan memorable events with our ideation, design, and execution services.",
-      image: "/images/event-ideation.jpg",
-    },
-    {
-      title: "Design Execution & Management",
-      description: "Ensure your designs are executed flawlessly with our management expertise.",
-      image: "/images/design-execution.jpg",
-    },
+    { id: 1, name: "Web Development", description: "We build stunning, fast, and secure websites that help businesses stand out online.", image: "https://via.placeholder.com/150" },
+    { id: 2, name: "Graphic Designing", description: "Creative logos, banners, and designs that make your brand look professional and attractive.", image: "https://via.placeholder.com/150" },
+    { id: 3, name: "Digital Marketing", description: "We help businesses grow online with social media, SEO, and ads that bring real results.", image: "https://via.placeholder.com/150" },
+    { id: 4, name: "Software Development", description: "Custom software solutions tailored to make your business run smoother and smarter.", image: "https://via.placeholder.com/150" },
+    { id: 5, name: "SEO (Search Engine Optimization)", description: "Want your website to show up on Google? We optimize your site to rank higher and get more visitors.", image: "https://via.placeholder.com/150" },
+    { id: 6, name: "Social Media Management", description: "We manage your social media pages, create engaging content, and help attract more customers.", image: "https://via.placeholder.com/150" },
+    { id: 7, name: "E-commerce Solutions", description: "Start selling online with an easy-to-use and beautifully designed online store.", image: "https://via.placeholder.com/150" },
+    { id: 8, name: "Mobile App Development", description: "Get your own Android or iOS app that works smoothly and keeps your users engaged.", image: "https://via.placeholder.com/150" }
   ];
 
   return (
-    <div className="container mx-auto my-10 px-4 sm:px-8">
-      {/* Section Title */}
-      <h2 className="text-4xl sm:text-5xl font-extralight text-center sm:text-start mb-12">
-        Our <br /> <span className="text-[#f86a04]">Services</span>
-      </h2>
-
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="group flex flex-col items-center p-6 border rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
-          >
-            {/* Image Section */}
-            <div className="w-full h-40 sm:h-52 md:h-64 overflow-hidden rounded-lg">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-
-            {/* Text Section */}
-            <div className="text-center mt-4">
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-[#f86a04] transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-gray-700 mb-4">{service.description}</p>
-              <button className="mt-4 px-6 py-2 bg-primary text-white font-semibold  hover:bg-blue-600 transition-colors duration-300">
-                Know more
+    <div className="p-6">
+      <h1 className="text-2xl font-bold text-center mb-6">Our Services</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <div key={service.id} className="bg-white rounded-2xl shadow-lg p-4 text-center">
+            <img src={service.image} alt={service.name} className="w-full h-40 object-cover rounded-lg mb-4" />
+            <h2 className="text-lg font-semibold">{service.name}</h2>
+            <p className="text-gray-500 text-sm mb-2">{service.description}</p>
+            <div className="mt-3 flex justify-center gap-3">
+              <button className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
+                Know More
               </button>
             </div>
           </div>
