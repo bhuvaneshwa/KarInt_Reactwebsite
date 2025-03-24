@@ -20,17 +20,22 @@ export default function Hero() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % content.length);
-    }, 5000); // Change every 5 seconds
-    return () => clearInterval(interval); // Cleanup on unmount
+      setFade(false);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % content.length);
+        setFade(true);
+      }, 500);
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, [content.length]);
 
   return (
     <div>
-      {/* Inline Styles for Fade-In Keyframes */}
       <style>
         {`
           @keyframes fadeIn {
@@ -40,35 +45,35 @@ export default function Hero() {
           .fade-in {
             animation: fadeIn 1s ease forwards;
           }
+          .transition-fade {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          .transition-fade.show {
+            opacity: 1;
+            transform: translateY(0);
+          }
         `}
       </style>
 
-      <section className="dark:bg-gray-100 dark:text-white">
-        <div className="container bg-black flex flex-col lg:flex-row items-start justify-between p-6 mx-auto">
-          {/* Text Section */}
-          <div
-            className="flex flex-col justify-start p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left w-full lg:w-1/2 fade-in"
-            style={{ animationDelay: "0.5s" }}
-          >
-            <h1 className="text-3xl font-bold leading-none sm:text-6xl">
+      <section
+        className="relative text-white bg-cover bg-center bg-no-repeat min-h-screen"
+        style={{ backgroundImage: 'url(/banner1.jpg)' }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <div className="relative z-10 flex flex-col items-center justify-start h-full px-4 sm:px-6 md:px-12 pt-24 md:pt-32 text-center container mx-auto">
+          <div className={`w-full max-w-5xl transition-fade ${fade ? "show" : ""}`}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-6">
               {content[currentIndex].heading}
             </h1>
-            <p className="mt-12 text-sm  mb-8 text-justify sm:mb-12 ">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed px-2 sm:px-4">
               {content[currentIndex].paragraph}
             </p>
-           
-          </div>
-
-          {/* Image Section */}
-          <div
-            className="flex items-start justify-start sm:h-80 lg:h-auto w-full lg:w-1/2 fade-in"
-            style={{ animationDelay: "1s" }}
-          >
-            <img
-              src="/banner1.jpg"
-              alt="Hero Banner"
-              className="object-cover h-full w-full"
-            />
+            <button className="mt-8 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium tracking-wide text-white uppercase transition duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
+              Get Started
+            </button>
           </div>
         </div>
       </section>

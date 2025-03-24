@@ -2,6 +2,7 @@ import Founder from "../components/Founder";
 import Testimonial from "../components/Testimonial";
 import VisionMission from "../components/VisionMission";
 import CountUp from 'react-countup';
+
 export default function About() {
   return (
     <div>
@@ -17,98 +18,72 @@ export default function About() {
         `}
       </style>
 
-      <section className="dark:bg-gray-100 dark:text-white " >
-        <div className="container bg-black flex flex-col lg:flex-row justify-between p-6 mx-auto">
-          {/* Text Section (Now on the Left) */}
-          <div
-            className="flex flex-col justify-start p-10 text-center lg:max-w-md xl:max-w-lg lg:text-left w-full lg:w-1/2 fade-in"
-            style={{ animationDelay: "0.5s" }}
-          >
-            <h1 className="text-5xl font-bold leading-none sm:text-6xl">
+      {/* Intro Section */}
+      <section className="bg-gray-100 text-black dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center px-4 sm:px-6 lg:px-12 py-12 gap-8">
+          {/* Text Section */}
+          <div className="fade-in w-full lg:w-1/2 text-center lg:text-left px-2 sm:px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               Where expertise converges with experience
             </h1>
-            <p className="mt-6 mb-8 text-lg sm:mb-12 text-justify">
-              With the right blend of technology and skills, we have been
-              offering premier IT consultancy to Fortune 500 companies. We
-              promise superior performance, quality-focused approach and
-              world-class service delivery, while reducing overhead costs by
-              approximately 70%.
+            <p className="mt-6 text-base sm:text-lg text-justify">
+              With the right blend of technology and skills, we have been offering premier IT consultancy to Fortune 500 companies. We promise superior performance, quality-focused approach, and world-class service delivery — while reducing overhead costs by approximately 70%.
             </p>
           </div>
 
-          {/* Image Section (Now on the Right) */}
-          <div
-            className="flex items-start justify-start sm:h-80 lg:h-auto w-full lg:w-1/2 fade-in"
-            style={{ animationDelay: "1s" }}
-          >
+          {/* Image Section */}
+          <div className="fade-in w-full lg:w-1/2">
             <img
               src="/about-banner.jpg"
-              alt=""
-              className="object-cover h-full w-full"
+              alt="About KAR Infotech"
+              className="w-full h-auto object-cover rounded"
             />
           </div>
         </div>
       </section>
 
-      <section>
-  <div className="bg-gray-200">
-    {/* Section Header */}
-    <div className="p-5 italic font-extralight text-center sm:px-10 md:px-20 lg:px-36 text-3xl sm:text-4xl md:text-5xl lg:text-[45px]">
-      <h1 className="text-start">
-        <span className="text-[#f86a04]">The Impact</span>
-        <br />
-        &nbsp;&nbsp;&nbsp; We Have Made
-      </h1>
-    </div>
+      {/* Impact Section */}
+      <section className="bg-gray-200 py-12 px-4 sm:px-6 lg:px-20">
+        <div className="container mx-auto">
+          {/* Section Title */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight italic text-center mb-12 leading-tight">
+            <span className="text-[#f86a04]">The Impact</span> <br />
+            &nbsp;&nbsp;&nbsp; We Have Made
+          </h2>
 
-    {/* Stats Section */}
-    <div className="flex flex-wrap justify-center sm:justify-evenly lg:justify-end gap-4 md:gap-6 lg:gap-10 px-5 sm:px-10 md:px-20 lg:px-36 pb-10">
-      {/* Clients */}
-      <div className="border border-gray-400 p-6 md:p-8 rounded-lg bg-white shadow-md">
-        <div className="flex flex-col items-center">
-          <p className="text-4xl font-bold leading-none lg:text-6xl text-[#f86a04]">
-            <CountUp start={0} end={30} duration={2.5} suffix="+" />
-          </p>
-          <p className="text-base sm:text-lg">Clients</p>
+          {/* Stats Cards */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {/* Clients */}
+            <div className="bg-white border border-gray-300 rounded-lg p-6 sm:p-8 shadow-md w-[250px] text-center">
+              <p className="text-4xl lg:text-5xl font-bold text-[#f86a04]">
+                <CountUp start={0} end={30} duration={2.5} suffix="+" />
+              </p>
+              <p className="text-base sm:text-lg mt-2">Clients</p>
+            </div>
+
+            {/* Projects */}
+            <div className="bg-white border border-gray-300 rounded-lg p-6 sm:p-8 shadow-md w-[250px] text-center">
+              <p className="text-4xl lg:text-5xl font-bold text-[#f86a04]">
+                <CountUp start={0} end={70} duration={2.5} suffix="+" />
+              </p>
+              <p className="text-base sm:text-lg mt-2">Projects</p>
+            </div>
+
+            {/* Partners */}
+            <div className="bg-white border border-gray-300 rounded-lg p-6 sm:p-8 shadow-md w-[250px] text-center">
+              <p className="text-4xl lg:text-5xl font-bold text-[#f86a04]">
+                <CountUp start={0} end={30} duration={2.5} suffix="+" />
+              </p>
+              <p className="text-base sm:text-lg mt-2">Partners</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Projects */}
-      <div className="border border-gray-400 p-6 md:p-8 rounded-lg bg-white shadow-md">
-        <div className="flex flex-col items-center">
-          <p className="text-4xl font-bold leading-none lg:text-6xl text-[#f86a04]">
-            <CountUp start={0} end={70} duration={2.5} suffix="+" />
-          </p>
-          <p className="text-base sm:text-lg">Projects</p>
-        </div>
-      </div>
-
-      {/* Awards */}
-      {/* <div className="border border-gray-400 p-6 md:p-8 rounded-lg bg-white shadow-md">
-        <div className="flex flex-col items-center">
-          <p className="text-4xl font-bold leading-none lg:text-6xl text-[#f86a04]">
-            <CountUp start={0} end={200} duration={2.5} suffix="+" />
-          </p>
-          <p className="text-base sm:text-lg">Awards</p>
-        </div>
-      </div> */}
-
-      {/* Partners */}
-      <div className="border border-gray-400 p-6 md:p-8 rounded-lg bg-white shadow-md">
-        <div className="flex flex-col items-center">
-          <p className="text-4xl font-bold leading-none lg:text-6xl text-[#f86a04]">
-            <CountUp start={0} end={30} duration={2.5} suffix="+" />
-          </p>
-          <p className="text-base sm:text-lg">Partners</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <VisionMission/>
-      <Founder/>
-      <Testimonial/>
+      {/* Additional Sections */}
+      <VisionMission />
+      <Founder />
+      <Testimonial />
     </div>
   );
 }

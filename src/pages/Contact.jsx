@@ -21,8 +21,9 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if all fields are filled
-    const isEmptyField = Object.values(formData).some((field) => field.trim() === "");
+    const isEmptyField = Object.values(formData).some(
+      (field) => field.trim() === ""
+    );
     if (isEmptyField) {
       alert("Please fill in all fields.");
       return;
@@ -61,57 +62,71 @@ export default function Contact() {
 
   return (
     <div>
-      <div className="bg-black text-white p-16">
-        <h1 className="text-6xl uppercase">Let&apos;s take your <span className="text-primary">business <br /> to places, together!</span></h1>
-        <h4 className="mt-5">We work with you to nurture your business towards success faster.</h4>
+      <div className="bg-black text-white px-4 py-12 sm:px-8 lg:px-20 lg:py-20">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase leading-tight">
+            Let&apos;s take your <span className="text-primary">business</span> <br />
+            to places, <span className="text-primary">together!</span>
+          </h1>
+          <h4 className="mt-4 sm:mt-6 text-base sm:text-lg">
+            We work with you to nurture your business toward success faster.
+          </h4>
 
-        <div className="pt-10">
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
-            {["firstName", "lastName", "phone", "email", "companyName"].map((field) => (
-              <div key={field}>
-                <input
-                  type="text"
-                  id={field}
+          <div className="pt-10">
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              {["firstName", "lastName", "phone", "email", "companyName"].map(
+                (field) => (
+                  <div key={field}>
+                    <input
+                      type="text"
+                      id={field}
+                      className="w-full p-3 bg-gray-200 rounded text-black placeholder:text-gray-500"
+                      placeholder={field
+                        .replace(/([A-Z])/g, " $1")
+                        .trim()}
+                      value={formData[field]}
+                      onChange={handleChange}
+                    />
+                  </div>
+                )
+              )}
+              <div>
+                <select
+                  id="option"
                   className="w-full p-3 bg-gray-200 rounded text-black"
-                  placeholder={field.replace(/([A-Z])/g, " $1").trim()}
-                  value={formData[field]}
+                  value={formData.option}
                   onChange={handleChange}
-                />
+                >
+                  <option value="">Choose an option</option>
+                  <option value="Consulting">Consulting</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
-            ))}
-            <div>
-              <select
-                id="option"
-                className="w-full p-3 bg-gray-200 rounded text-black"
-                value={formData.option}
-                onChange={handleChange}
-              >
-                <option value="">Choose an option</option>
-                <option value="Consulting">Consulting</option>
-                <option value="Partnership">Partnership</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div className="md:col-span-2">
-              <textarea
-                id="message"
-                rows="4"
-                className="w-full p-3 bg-gray-200 rounded text-black"
-                placeholder="Your message"
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className="md:col-span-2">
-              <button
-                type="submit"
-                className="w-full p-4 bg-[#f86a04] text-white text-lg uppercase"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting..." : "Submit"}
-              </button>
-            </div>
-          </form>
+              <div className="md:col-span-2">
+                <textarea
+                  id="message"
+                  rows="5"
+                  className="w-full p-3 bg-gray-200 rounded text-black placeholder:text-gray-500"
+                  placeholder="Your message"
+                  value={formData.message}
+                  onChange={handleChange}
+                ></textarea>
+              </div>
+              <div className="md:col-span-2">
+                <button
+                  type="submit"
+                  className="w-full p-4 bg-[#f86a04] hover:bg-[#e65c00] transition-all duration-300 text-white text-lg uppercase font-semibold rounded"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
