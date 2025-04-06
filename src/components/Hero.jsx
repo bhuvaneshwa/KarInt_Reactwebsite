@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   const content = [
@@ -29,7 +30,7 @@ export default function Hero() {
         setCurrentIndex((prev) => (prev + 1) % content.length);
         setFade(true);
       }, 500);
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [content.length]);
@@ -71,9 +72,20 @@ export default function Hero() {
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed px-2 sm:px-4">
               {content[currentIndex].paragraph}
             </p>
-            <button className="mt-8 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium tracking-wide text-white uppercase transition duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <div className="flex justify-center mt-8 gap-4">
+              <Link to="/services">
+              <button className="mt-8 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium tracking-wide text-white uppercase transition duration-300 transform bg-primary rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
               Get Started
             </button>
+            </Link>
+           
+           <Link to="/contact">
+            <button className="mt-8 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium tracking-wide text-white uppercase transition duration-300 transform bg-primary rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400">
+             Contact Us
+            </button>
+            </Link>
+              </div>
+            
           </div>
         </div>
       </section>

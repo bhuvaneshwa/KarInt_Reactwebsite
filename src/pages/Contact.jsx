@@ -12,6 +12,8 @@ export default function Contact() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -25,11 +27,13 @@ export default function Contact() {
       (field) => field.trim() === ""
     );
     if (isEmptyField) {
-      alert("Please fill in all fields.");
+      setErrorMessage("Please fill in all fields.");
       return;
     }
 
     setIsSubmitting(true);
+    setErrorMessage("");
+    setSuccessMessage("");
 
     try {
       const response = await fetch("http://localhost:5000/send-email", {
@@ -39,7 +43,7 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        alert("Your message has been sent successfully!");
+        setSuccessMessage("Your message has been sent successfully!");
         setFormData({
           firstName: "",
           lastName: "",
@@ -50,11 +54,11 @@ export default function Contact() {
           message: "",
         });
       } else {
-        alert("Failed to send your message. Please try again later.");
+        setErrorMessage("Failed to send your message. Please try again later.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      setErrorMessage("An error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -126,6 +130,12 @@ export default function Contact() {
                 </button>
               </div>
             </form>
+            {successMessage && (
+              <p className="mt-4 text-green-500 text-center">{successMessage}</p>
+            )}
+            {errorMessage && (
+              <p className="mt-4 text-red-500 text-center">{errorMessage}</p>
+            )}
           </div>
         </div>
       </div>
