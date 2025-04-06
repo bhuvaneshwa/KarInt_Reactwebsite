@@ -23,9 +23,10 @@ export default function Footer() {
               <h3 className="tracking-wide uppercase dark:text-white">Our Product</h3>
               <ul className="space-y-1">
                 <li><Link to="/product">Product Overview</Link></li>
-                <li><a href="#">Custom Solutions</a></li>
-                <li><a href="#">Case Studies</a></li>
-                <li><a href="#">Product Updates</a></li>
+                <li><Link to="/customSolutions">Custom Solutions</Link></li>
+                <li><Link to="/caseStudies">Case Studies</Link></li>
+                <li><Link to="/productUpdates">Product Updates</Link></li>
+               
               </ul>
             </div>
 
@@ -33,9 +34,10 @@ export default function Footer() {
               <h3 className="tracking-wide uppercase dark:text-white">Our Services</h3>
               <ul className="space-y-1">
                 <li><Link to="/services">Web Development</Link></li>
-                <li><a href="#">Digital Marketing</a></li>
-                <li><a href="#">E-Commerce Solutions</a></li>
-                <li><a href="#">SEO Optimization</a></li>
+                <li><Link to="/services">Mobile App Development</Link></li>
+                <li><Link to="/services">Digital Marketing</Link></li>
+                <li><Link to="/services">E-Commerce Solutions</Link></li>
+                <li><Link to="/services">SEO Optimization</Link></li>
               </ul>
             </div>
 
@@ -45,7 +47,7 @@ export default function Footer() {
                 <li><Link to="/about">About Us</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
                 <li><Link to="/terms" className="hover:underline">Terms of Service</Link></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="/privacypolicy">Privacy Policy</a></li>
               </ul>
             </div>
 

@@ -1,5 +1,5 @@
 import Kskb from "../images/01.jpg";
-import Pred from "../images/01.jpg";
+import Pred from "../images/02.jpg";
 
 export default function Testimonial() {
   return (

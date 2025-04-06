@@ -3,29 +3,29 @@ import { useState, useEffect } from "react";
 
 export default function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   const location = useLocation();
 
   // Close dropdowns and menus on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsDropdownOpen(false);
-    setIsMobileDropdownOpen(false);
+    // setIsDropdownOpen(false);
+    // setIsMobileDropdownOpen(false);
   }, [location]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
+  // const toggleDropdown = () => {
+  //   setIsDropdownOpen((prev) => !prev);
+  // };
 
-  const toggleMobileDropdown = () => {
-    setIsMobileDropdownOpen((prev) => !prev);
-  };
+  // const toggleMobileDropdown = () => {
+  //   setIsMobileDropdownOpen((prev) => !prev);
+  // };
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -35,10 +35,10 @@ export default function Layout() {
     { path: "/contact", label: "Contact Us" },
   ];
 
-  const dropdownLinks = [
-    { path: "/other/team", label: "Our Team" },
-    { path: "/other/career", label: "Career Page" },
-  ];
+  // const dropdownLinks = [
+  //   { path: "/other/team", label: "Our Team" },
+  //   { path: "/other/career", label: "Career Page" },
+  // ];
 
   return (
     <div>
@@ -46,19 +46,18 @@ export default function Layout() {
         <div className="container flex justify-between h-16 mx-auto">
           {/* Logo Section */}
           <div className="flex items-center">
-  <Link
-    to="/"
-    aria-label="Back to homepage"
-    className="flex items-center p-2"
-  >
-    <img
-      src="/logo.png"
-      alt="Company Logo"
-      className="h-auto w-12" // Adjust as per design
-    />
-  </Link>
-</div>
-
+            <Link
+              to="/"
+              aria-label="Back to homepage"
+              className="flex items-center p-2"
+            >
+              <img
+                src="/logo.png"
+                alt="Company Logo"
+                className="h-16 w-44" // Adjust as per design
+              />
+            </Link>
+          </div>
 
           {/* Desktop Menu */}
           <ul className="items-stretch hidden space-x-3 lg:flex">
@@ -72,7 +71,7 @@ export default function Layout() {
                 </Link>
               </li>
             ))}
-            <li className="relative flex">
+            {/* <li className="relative flex">
               <button
                 onClick={toggleDropdown}
                 className="flex items-center px-4 -mb-1 hover:text-primary focus:outline-none"
@@ -94,7 +93,7 @@ export default function Layout() {
                   ))}
                 </ul>
               )}
-            </li>
+            </li> */}
           </ul>
 
           {/* Mobile Menu Button */}
@@ -135,7 +134,7 @@ export default function Layout() {
                   </Link>
                 </li>
               ))}
-              <li>
+              {/* <li>
                 <button
                   onClick={toggleMobileDropdown}
                   className="w-full text-left block px-4 py-2 hover:text-primary focus:outline-none"
@@ -157,7 +156,7 @@ export default function Layout() {
                     ))}
                   </ul>
                 )}
-              </li>
+              </li> */}
             </ul>
           </div>
         )}

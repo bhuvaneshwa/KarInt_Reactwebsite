@@ -11,6 +11,10 @@ import Services from "./pages/Services";
 import Team from "./components/Team";
 import Career from "./components/Career";
 import Terms from "./components/Terms";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import CustomSolutions from "./components/CustomSolutions";
+import CaseStudies from "./components/CaseStudies";
+import ProductUpdates from "./components/ProductUpdates";
 
 export default function App() {
   return (
@@ -27,6 +31,12 @@ export default function App() {
             <Route path="/other/team" element={<Team />} />
             <Route path="/other/career" element={<Career />} />
             <Route path="/terms" element={<Terms />} />
+
+            <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
+
+            <Route path="/customSolutions" element={<CustomSolutions/>} />
+            <Route path="/caseStudies" element={<CaseStudies/>} />
+            <Route path="/productUpdates" element={<ProductUpdates/>} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

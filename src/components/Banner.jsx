@@ -13,7 +13,7 @@ export default function Banner() {
             </div>
             <div className="flex items-center gap-2">
               <PhoneIcon className="h-5 w-5 text-primary" />
-              <span className="whitespace-nowrap">(+91) 9789 77 5806</span>
+              <span className="whitespace-nowrap">(+91) 7010580406</span>
             </div>
             <div className="flex items-center gap-2">
               <EnvelopeIcon className="h-5 w-5 text-primary" />
