@@ -98,17 +98,28 @@ export default function Contact() {
                 )
               )}
               <div>
-                <select
-                  id="option"
-                  className="w-full p-3 bg-gray-200 rounded text-black"
-                  value={formData.option}
-                  onChange={handleChange}
-                >
-                  <option value="">Choose an option</option>
-                  <option value="Consulting">Consulting</option>
-                  <option value="Partnership">Partnership</option>
-                  <option value="Other">Other</option>
-                </select>
+              <select
+  id="option"
+  name="option"
+  required
+  className="w-full p-3 bg-gray-200 rounded text-black"
+  value={formData.option}
+  onChange={handleChange}
+>
+  <option value="">Choose an option</option>
+  <option value="Consulting">Consulting</option>
+  <option value="Partnership">Partnership</option>
+  <option value="Web Development">Web Development</option>
+  <option value="Graphic Designing">Graphic Designing</option>
+  <option value="Digital Marketing">Digital Marketing</option>
+  <option value="Software Development">Software Development</option>
+  <option value="SEO">SEO (Search Engine Optimization)</option>
+  <option value="Social Media Management">Social Media Management</option>
+  <option value="E-commerce Solutions">E-commerce Solutions</option>
+  <option value="Mobile App Development">Mobile App Development</option>
+  <option value="Other">Other</option>
+</select>
+
               </div>
               <div className="md:col-span-2">
                 <textarea

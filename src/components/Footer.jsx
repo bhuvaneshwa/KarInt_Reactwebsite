@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div>
-      <footer className="px-4 divide-y dark:bg-black dark:text-white">
+      <footer className="px-4 divide-y divide-primary dark:bg-black dark:text-white font-bold ">
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           {/* Logo Section */}
           <div className="lg:w-1/3">
@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Links Section */}
           <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase dark:text-white">Our Product</h3>
+              <h3 className="tracking-wide uppercase  font-bold text-primary">Our Product</h3>
               <ul className="space-y-1">
                 <li><Link to="/product">Product Overview</Link></li>
                 <li><Link to="/customSolutions">Custom Solutions</Link></li>
@@ -31,7 +31,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase dark:text-white">Our Services</h3>
+              <h3 className="tracking-wide uppercase  font-bold text-primary">Our Services</h3>
               <ul className="space-y-1">
                 <li><Link to="/services">Web Development</Link></li>
                 <li><Link to="/services">Mobile App Development</Link></li>
@@ -42,7 +42,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase dark:text-white">Company</h3>
+              <h3 className="tracking-wide uppercase text-primary">Company</h3>
               <ul className="space-y-1">
                 <li><Link to="/about">About Us</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
@@ -52,7 +52,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-3">
-              <h3 className="uppercase dark:text-white">Social Media</h3>
+              <h3 className="uppercase  text-primary">Social Media</h3>
               <ul className="space-y-1">
                 <li>
                   <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
@@ -88,6 +88,8 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+
+
           </div>
         </div>
 

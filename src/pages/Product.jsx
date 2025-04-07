@@ -46,8 +46,8 @@ export default function Product() {
 
   return (
     <div className="p-6">
-      <h1 className="text-5xl text-[#f86a04] font-extralight italic text-start mb-8">
-        Our Software <br /> <span className="text-black">Solutions</span>
+      <h1 className="text-5xl text-[#f86a04] font-extralight italic  text-start mb-8">
+        Our Software <br /> <span className="text-black ">Solutions</span>
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((product) => (
@@ -62,9 +62,7 @@ export default function Product() {
             />
             <h2 className="text-lg font-semibold">{product.name}</h2>
             <p className="text-gray-500 text-sm mb-3">{product.description}</p>
-            <button className="bg-[#f86a04] text-white px-4 py-2 rounded-lg hover:bg-[#e65c00] transition">
-              More Info
-            </button>
+           
           </div>
         ))}
       </div>
