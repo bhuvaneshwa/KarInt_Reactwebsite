@@ -2,8 +2,385 @@
 @tailwind components;
 @tailwind utilities;
 
-/* In your global CSS file */
-/* * {
-    transition: all 0.3s ease-in-out;
+/* CSS Custom Properties for Theme System */
+:root {
+  /* Default theme colors (light theme) */
+  --color-primary: #f86a04;
+  --color-primary-hover: #ea580c;
+  --color-secondary: #e65c00;
+  --color-background: #ffffff;
+  --color-background-secondary: #f9fafb;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f9fafb;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-tertiary: #6b7280;
+  --color-text-inverse: #ffffff;
+  --color-border: #e5e7eb;
+  --color-border-hover: #d1d5db;
+  --color-border-focus: #f86a04;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #f86a04 0%, #e65c00 100%);
+  --gradient-secondary: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  --gradient-hero: linear-gradient(135deg, #1f2937 0%, #111827 50%, #030712 100%);
+  --gradient-card: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+}
+
+/* Dark theme overrides */
+.theme-dark {
+  --color-primary: #f86a04;
+  --color-primary-hover: #fb923c;
+  --color-secondary: #f87171;
+  --color-background: #030712;
+  --color-background-secondary: #111827;
+  --color-surface: #111827;
+  --color-surface-hover: #1f2937;
+  --color-text-primary: #f3f4f6;
+  --color-text-secondary: #d1d5db;
+  --color-text-tertiary: #9ca3af;
+  --color-text-inverse: #111827;
+  --color-border: #374151;
+  --color-border-hover: #4b5563;
+  --color-border-focus: #f86a04;
+  
+  --gradient-primary: linear-gradient(135deg, #f86a04 0%, #fb923c 100%);
+  --gradient-secondary: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  --gradient-hero: linear-gradient(135deg, #030712 0%, #111827 50%, #1f2937 100%);
+  --gradient-card: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+/* Corporate theme overrides */
+.theme-corporate {
+  --color-primary: #1e40af;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #059669;
+  --color-background: #ffffff;
+  --color-background-secondary: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f8fafc;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748b;
+  --color-text-inverse: #ffffff;
+  --color-border: #e2e8f0;
+  --color-border-hover: #cbd5e1;
+  --color-border-focus: #1e40af;
+  
+  --gradient-primary: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+  --gradient-secondary: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-   */
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.animate-bounce-gentle {
+  animation: bounceGentle 2s infinite;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+/* Animation delay utilities */
+.animation-delay-75 {
+  animation-delay: 75ms;
+}
+
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-450 {
+  animation-delay: 450ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4000ms;
+}
+
+/* Theme-aware utility classes */
+@layer utilities {
+  .bg-theme-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .bg-theme-secondary {
+    background-color: var(--color-secondary);
+  }
+  
+  .bg-theme-surface {
+    background-color: var(--color-surface);
+  }
+  
+  .bg-theme-background {
+    background-color: var(--color-background);
+  }
+  
+  .text-theme-primary {
+    color: var(--color-text-primary);
+  }
+  
+  .text-theme-secondary {
+    color: var(--color-text-secondary);
+  }
+  
+  .text-theme-inverse {
+    color: var(--color-text-inverse);
+  }
+  
+  .border-theme {
+    border-color: var(--color-border);
+  }
+  
+  .bg-gradient-theme-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-theme-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-theme-card {
+    background: var(--gradient-card);
+  }
+}
+
+/* Component base styles */
+@layer components {
+  .btn-theme {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 cursor-pointer border-none outline-none;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+  }
+  
+  .btn-theme:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-theme:active {
+    transform: translateY(0);
+  }
+  
+  .btn-theme-secondary {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 cursor-pointer outline-none;
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+  }
+  
+  .btn-theme-secondary:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-border-hover);
+  }
+  
+  .card-theme {
+    @apply rounded-2xl transition-all duration-200;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  }
+  
+  .card-theme:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .input-theme {
+    @apply rounded-md transition-all duration-200 outline-none;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    padding: 0.625rem 0.75rem;
+  }
+  
+  .input-theme:focus {
+    border-color: var(--color-border-focus);
+    box-shadow: 0 0 0 3px rgb(248 106 4 / 0.1);
+  }
+  
+  .input-theme::placeholder {
+    color: var(--color-text-tertiary);
+  }
+}
+
+/* Global theme transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Smooth theme transitions */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+/* Scrollbar theming */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+/* Selection theming */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* Focus visible styling */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .theme-dark,
+  .theme-corporate {
+    --color-background: #ffffff;
+    --color-text-primary: #000000;
+    --color-text-secondary: #4b5563;
+  }
+}

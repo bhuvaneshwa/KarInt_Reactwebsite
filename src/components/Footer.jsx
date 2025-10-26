@@ -95,7 +95,8 @@ export default function Footer() {
 
         {/* Footer Bottom Note */}
         <div className="py-6 text-sm text-center dark:text-gray-600">
-          © KAR International Infotech 2025. All rights reserved.
+
+          <Link to="/adminlog">© KAR International Infotech</Link> 2025. All rights reserved.
         </div>
       </footer>
     </div>

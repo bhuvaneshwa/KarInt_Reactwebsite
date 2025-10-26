@@ -1,117 +1,123 @@
-import { useRef, useEffect, useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 export default function OurService() {
-  const serviceRefs = useRef([]);
-  const [visibleSections, setVisibleSections] = useState({});
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleSections((prev) => ({
-              ...prev,
-              [entry.target.dataset.index]: true,
-            }));
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    serviceRefs.current.forEach((ref) => ref && observer.observe(ref));
-    return () => observer.disconnect();
-  }, []);
-
-  const services = useMemo(
-    () => [
-      {
-        title: "Digital Marketing",
-        description:
-          "Boost your brand’s online presence with our expert digital marketing services. From SEO and social media management to targeted ad campaigns, we help you connect with your audience and achieve measurable growth.",
-        image: "/digital-marketing-banner.jpg",
-      },
-      {
-        title: "E-commerce Website",
-        description:
-          "Build an online store that stands out and drives sales effortlessly. From secure payment integration to user-friendly interfaces, we create tailored solutions. Make shopping easy, engaging, and scalable for growth.",
-        image: "/E-commerce-banner.jpg",
-      },
-    ],
-    []
-  );
-
-  const handleLearnMoreClick = () => {
-    navigate("/services");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const services = [
+    {
+      id: 1,
+      title: "Web Development",
+      desc:
+        "Modern, responsive web apps using React, Node and scalable architectures to help your business grow online.",
+      cta: "Explore",
+      features: ["Custom frontends", "API-driven backends", "Performance & SEO"],
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+          <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      ),
+    },
+    {
+      id: 2,
+      title: "UI / UX Design",
+      desc:
+        "Beautiful, functional and user-centered designs that make your products stand out and engage users effectively.",
+      cta: "View Design",
+      features: ["Design systems", "Prototypes & testing", "Accessible UI"],
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+          <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M12 2l3 7h7l-5.5 4 2 7L12 16 4.5 20l2-7L1 9h7l3-7z" />
+        </svg>
+      ),
+    },
+  ];
 
   return (
-    <div>
-      <style>
-        {`
-          .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-          }
-          .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-          }
-          .image-cover {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        `}
-      </style>
+    <section className="py-16 bg-black text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Our Services</h2>
+          <p className="mt-2 text-gray-400 max-w-xl mx-auto">
+            Solutions crafted to elevate your brand — practical, scalable, and built for growth.
+          </p>
+        </div>
 
-      <div className="bg-gray-200 min-h-screen py-12 px-4 sm:px-6 lg:px-20">
-        <div className="container mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl text-[#f86a04] font-extralight italic mb-10 text-center lg:text-left">
-            Our <br /> <span className="text-black">Services</span>
-          </h1>
-
-          <div className="flex flex-col gap-12">
-            {services.map((service, index) => (
+        {/* single-column */}
+        <div className="grid grid-cols-1 gap-6">
+          {services.map((s, idx) => (
+            <article
+              key={s.id}
+              className="relative flex gap-6 items-start bg-gradient-to-br from-white/2 to-white/1 border border-white/5 rounded-2xl p-6 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-250"
+              aria-labelledby={`service-${s.id}-title`}
+            >
+              {/* left accent */}
               <div
-                key={index}
-                ref={(el) => (serviceRefs.current[index] = el)}
-                data-index={index}
-                className={`slide-in-right ${
-                  visibleSections[index] ? "visible" : ""
-                } bg-white p-6 shadow-lg border border-gray-200 flex flex-col md:flex-row items-center hover:border-l-4 hover:border-[#f86a04]`}
-              >
-                <div className="w-full md:w-2/3 mb-4 md:mb-0 md:pr-6">
-                  <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-                    {service.title}
-                  </h2>
-                  <p className="text-base sm:text-lg text-gray-800 mb-4">
-                    {service.description}
-                  </p>
-                  <button
-                    className="px-5 py-2 text-sm sm:text-base font-semibold text-white bg-[#f86a04] hover:bg-[#e65c00] rounded"
-                    onClick={handleLearnMoreClick}
-                    aria-label={`Learn more about ${service.title}`}
-                  >
-                    Learn More
-                  </button>
-                </div>
-                <div className="w-full md:w-1/3 h-48 md:h-56">
-                  <img
-                    src={service.image}
-                    alt={`${service.title} illustration`}
-                    className="image-cover rounded"
-                  />
+                className={`absolute left-0 top-3 bottom-3 w-1 rounded-l-2xl ${
+                  idx === 0 ? "bg-primary" : "bg-primary/80"
+                }`}
+                aria-hidden
+              />
+
+              {/* icon + badge */}
+              <div className="flex-shrink-0 z-10">
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-tr from-primary/10 to-primary/5 ring-1 ring-primary/20">
+                  <div className="text-primary">{s.icon}</div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* content */}
+              <div className="z-10 flex-1">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 id={`service-${s.id}-title`} className="text-xl font-semibold leading-tight">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-gray-300 text-sm max-w-prose">{s.desc}</p>
+                  </div>
+
+                  <div className="text-right">
+                    <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-white/3 text-gray-200 border border-white/6">
+                      {s.features.length} features
+                    </span>
+                  </div>
+                </div>
+
+                <hr className="my-4 border-white/5" />
+
+                {/* features */}
+                <ul className="flex flex-wrap gap-2 mb-4">
+                  {s.features.map((f, i) => (
+                    <li
+                      key={i}
+                      className="inline-flex items-center gap-2 text-sm text-gray-300 bg-white/3 px-3 py-1 rounded-full border border-white/6"
+                    >
+                      <svg className="w-3 h-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+                        <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <div className="flex items-center justify-between">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                    onClick={() => console.log("CTA:", s.title)}
+                    aria-label={`${s.cta} for ${s.title}`}
+                  >
+                    {s.cta}
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+                      <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
+
+                  <div className="text-sm text-gray-400">Trusted by clients</div>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Services() {
   const services = [
     {
@@ -6,6 +8,7 @@ export default function Services() {
       description:
         "We build stunning, fast, and secure websites that help businesses stand out online.",
       image: "https://source.unsplash.com/600x400/?web-development,code",
+      link: "/services/web-development"
     },
     {
       id: 2,
@@ -13,6 +16,7 @@ export default function Services() {
       description:
         "Creative logos, banners, and designs that make your brand look professional and attractive.",
       image: "https://source.unsplash.com/600x400/?graphic-design,creative",
+      link: "/services/graphic-designing"
     },
     {
       id: 3,
@@ -20,6 +24,7 @@ export default function Services() {
       description:
         "We help businesses grow online with social media, SEO, and ads that bring real results.",
       image: "https://source.unsplash.com/600x400/?digital-marketing,ads,socialmedia",
+      link: "/services/digital-marketing"
     },
     {
       id: 4,
@@ -27,6 +32,7 @@ export default function Services() {
       description:
         "Custom software solutions tailored to make your business run smoother and smarter.",
       image: "https://source.unsplash.com/600x400/?software,development,technology",
+      link: "/services/software-development"
     },
     {
       id: 5,
@@ -34,6 +40,7 @@ export default function Services() {
       description:
         "Want your website to show up on Google? We optimize your site to rank higher and get more visitors.",
       image: "https://source.unsplash.com/600x400/?seo,search-engine,ranking",
+      link: "/services/seo"
     },
     {
       id: 6,
@@ -41,6 +48,7 @@ export default function Services() {
       description:
         "We manage your social media pages, create engaging content, and help attract more customers.",
       image: "https://source.unsplash.com/600x400/?social-media,instagram,facebook",
+      link: "/services/social-media-management"
     },
     {
       id: 7,
@@ -48,6 +56,7 @@ export default function Services() {
       description:
         "Start selling online with an easy-to-use and beautifully designed online store.",
       image: "https://source.unsplash.com/600x400/?ecommerce,shopping,online-store",
+      link: "/services/ecommerce-solutions"
     },
     {
       id: 8,
@@ -55,11 +64,12 @@ export default function Services() {
       description:
         "Get your own Android or iOS app that works smoothly and keeps your users engaged.",
       image: "https://source.unsplash.com/600x400/?mobile-app,android,ios",
+      link: "/services/mobile-app-development"
     },
   ];
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-white">
       
       <h1 className="text-5xl text-[#f86a04] font-extralight italic  text-start mb-8">
         Our<br /> <span className="text-black ">Services</span>
@@ -77,9 +87,12 @@ export default function Services() {
             />
             <h2 className="text-lg font-semibold">{service.name}</h2>
             <p className="text-gray-500 text-sm mb-3">{service.description}</p>
-            <button className="bg-[#f86a04] text-white px-4 py-2 rounded-lg hover:bg-[#e65c00] transition">
+            <Link 
+              to={service.link}
+              className="bg-[#f86a04] text-white px-4 py-2 rounded-lg hover:bg-[#e65c00] transition"
+            >
               Know More
-            </button>
+            </Link>
           </div>
         ))}
       </div>
