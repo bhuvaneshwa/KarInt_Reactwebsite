@@ -118,7 +118,7 @@ export default function Product() {
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
               Products Built for 
-              <span className="block bg-gradient-to-r from-primary to-yellow-400 bg-clip-text text-transparent">
+              <span className=" bg-clip-text text-transparent">
                 Growth & Innovation
               </span>
             </h1>

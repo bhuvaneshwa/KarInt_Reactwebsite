@@ -10,9 +10,9 @@ export default function Training() {
       title: "Technical & Programming",
       subtitle: "Master the art of coding",
       icon: "💻",
-      color: "from-violet-500 via-purple-500 to-indigo-600",
-      bgColor: "from-violet-50 to-purple-100",
-      accentColor: "violet-500",
+      color: "from-blue-500 via-indigo-500 to-purple-600",
+      bgColor: "from-blue-50 to-indigo-100",
+      accentColor: "blue-500",
       programs: [
         "Core Programming Fundamentals - C, C++, Python, Java, JavaScript",
         "Master Web Development Part 1 and 2",
@@ -31,9 +31,9 @@ export default function Training() {
       title: "Aptitude & Problem-Solving",
       subtitle: "Sharpen your analytical mind",
       icon: "🧠",
-      color: "from-emerald-500 via-teal-500 to-cyan-600",
-      bgColor: "from-emerald-50 to-teal-100",
-      accentColor: "emerald-500",
+      color: "from-teal-500 via-emerald-500 to-green-600",
+      bgColor: "from-teal-50 to-emerald-100",
+      accentColor: "teal-500",
       programs: [
         "Quantitative Aptitude Mastery Program",
         "Logical Reasoning & Analytical Thinking",
@@ -51,8 +51,8 @@ export default function Training() {
       title: "Soft Skills & Professional Readiness",
       subtitle: "Build your professional persona",
       icon: "🎯",
-      color: "from-orange-500 via-red-500 to-pink-600",
-      bgColor: "from-orange-50 to-red-100",
+      color: "from-orange-500 via-amber-500 to-yellow-600",
+      bgColor: "from-orange-50 to-amber-100",
       accentColor: "orange-500",
       programs: [
         "Communication Skills Enhancement Program",
@@ -79,42 +79,42 @@ export default function Training() {
       icon: "🎓",
       title: "Industry-Expert Faculty",
       description: "Learn from professionals with real-world experience in top tech companies",
-      gradient: "from-blue-400 to-blue-600",
+      gradient: "from-blue-500 to-indigo-600",
       delay: "delay-100"
     },
     {
       icon: "🏢",
       title: "Corporate-Grade Curriculum",
       description: "Curriculum designed in partnership with leading industry partners",
-      gradient: "from-green-400 to-green-600",
+      gradient: "from-teal-500 to-emerald-600",
       delay: "delay-200"
     },
     {
       icon: "💼",
       title: "Placement Assistance",
       description: "Comprehensive placement support with 100+ hiring partner companies",
-      gradient: "from-purple-400 to-purple-600",
+      gradient: "from-purple-500 to-violet-600",
       delay: "delay-300"
     },
     {
       icon: "🔬",
       title: "Hands-on Projects",
       description: "Real-world projects and case studies for practical learning experience",
-      gradient: "from-orange-400 to-orange-600",
+      gradient: "from-orange-500 to-amber-600",
       delay: "delay-500"
     },
     {
       icon: "📊",
       title: "Performance Tracking",
       description: "Advanced analytics to track progress and identify improvement areas",
-      gradient: "from-pink-400 to-pink-600",
+      gradient: "from-rose-500 to-pink-600",
       delay: "delay-700"
     },
     {
       icon: "🤝",
       title: "Industry Mentorship",
       description: "One-on-one mentorship from industry professionals and alumni",
-      gradient: "from-indigo-400 to-indigo-600",
+      gradient: "from-indigo-500 to-purple-600",
       delay: "delay-1000"
     }
   ];
@@ -124,115 +124,119 @@ export default function Training() {
       title: "Our Vision",
       icon: "👁️",
       description: "To be the leading catalyst in transforming educational institutions into industry-ready talent hubs.",
-      gradient: "from-cyan-400 to-blue-500",
+      gradient: "from-blue-500 to-indigo-600",
       pattern: "bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"
     },
     {
       title: "Our Mission", 
       icon: "🎯",
       description: "Bridging the academia-industry gap through innovative training programs and practical skill development.",
-      gradient: "from-emerald-400 to-green-500",
-      pattern: "bg-[radial-gradient(circle_at_30%_70%,rgba(34,197,94,0.1),transparent_50%)]"
+      gradient: "from-teal-500 to-emerald-600",
+      pattern: "bg-[radial-gradient(circle_at_30%_70%,rgba(20,184,166,0.1),transparent_50%)]"
     },
     {
       title: "Learning Philosophy",
       icon: "📚",
       description: "Learn by doing - emphasizing hands-on experience, real-world projects, and industry best practices.",
-      gradient: "from-violet-400 to-purple-500",
+      gradient: "from-purple-500 to-violet-600",
       pattern: "bg-[radial-gradient(circle_at_70%_30%,rgba(147,51,234,0.1),transparent_50%)]"
     },
     {
       title: "Our Promise",
       icon: "💝",
       description: "Guaranteed skill enhancement with measurable outcomes and continuous support for career growth.",
-      gradient: "from-rose-400 to-pink-500",
-      pattern: "bg-[radial-gradient(circle_at_20%_80%,rgba(236,72,153,0.1),transparent_50%)]"
+      gradient: "from-orange-500 to-amber-600",
+      pattern: "bg-[radial-gradient(circle_at_20%_80%,rgba(249,115,22,0.1),transparent_50%)]"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-0 right-4 w-96 h-96 bg-gradient-to-r from-yellow-500/20 to-red-500/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-green-500/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-        </div>
+    {/* Hero Section */}
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-indigo-900">
+  {/* Animated Black & White Background */}
+  <div className="absolute inset-0">
+    {/* Soft floating colored blobs */}
+    <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-blue-600/40 to-indigo-500/30 rounded-full mix-blend-screen filter blur-3xl animate-blob"></div>
+    <div className="absolute top-0 right-4 w-96 h-96 bg-gradient-to-r from-purple-600/30 to-violet-500/20 rounded-full mix-blend-screen filter blur-3xl animate-blob animation-delay-2000"></div>
+    <div className="absolute -bottom-8 left-20 w-96 h-96 bg-gradient-to-r from-teal-500/20 to-emerald-600/20 rounded-full mix-blend-screen filter blur-3xl animate-blob animation-delay-4000"></div>
+  </div>
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
+  {/* Subtle grid pattern overlay */}
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
 
-        <div className="relative z-10 container mx-auto px-6 text-center">
-          <div className="max-w-5xl mx-auto">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 rounded-full text-white mb-8 animate-fade-in-up">
-              <span className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></span>
-              <span className="text-sm font-medium">🎓 Educational Excellence Redefined</span>
-            </div>
+  {/* Content */}
+  <div className="relative z-10 container mx-auto px-6 text-center">
+    <div className="max-w-5xl mx-auto">
+      {/* Badge */}
+      <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-white mb-8 animate-fade-in-up">
+        <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+        <span className="text-sm font-medium">🎓 Educational Excellence Redefined</span>
+      </div>
 
-            {/* Main Heading */}
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="text-white block mb-4 animate-fade-in-up animation-delay-200">
-                Transforming Students
-              </span>
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent animate-fade-in-up animation-delay-400">
-                Into Industry Leaders
-              </span>
-            </h1>
+      {/* Main Heading */}
+      <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+        <span className="text-white block mb-4 animate-fade-in-up animation-delay-200">
+          Transforming Students
+        </span>
+        <span className="bg-gradient-to-r from-blue-200 via-indigo-200 to-purple-300 bg-clip-text text-transparent animate-fade-in-up animation-delay-400">
+          Into Industry Leaders
+        </span>
+      </h1>
 
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto animate-fade-in-up animation-delay-600">
-              Bridge the gap between academic learning and industry excellence with our 
-              <span className="text-purple-400 font-semibold"> revolutionary training programs </span>
-              designed for colleges and schools across India.
-            </p>
+      {/* Subtitle */}
+      <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto animate-fade-in-up animation-delay-600">
+        Bridge the gap between academic learning and industry excellence with our
+        <span className="text-gray-100 font-semibold"> revolutionary training programs </span>
+        designed for colleges and schools across India.
+      </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up animation-delay-800">
-              <Link to="/contact">
-                <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-bold text-white shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 hover:scale-105 transform">
-                  <span className="relative z-10 flex items-center gap-3">
-                    <span className="text-lg">🚀</span>
-                    Partner With Us
-                    <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
-              </Link>
-              <button className="group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl font-semibold text-white hover:bg-white/20 transition-all duration-300">
-                <span className="flex items-center gap-3">
-                  <span className="text-lg">📋</span>
-                  Download Curriculum
-                  <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up animation-delay-800">
+        <Link to="/contact">
+          <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl font-bold text-white shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 hover:scale-105 transform">
+            <span className="relative z-10 flex items-center gap-3">
+              <span className="text-lg">🚀</span>
+              Partner With Us
+              <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+        </Link>
+        <button className="group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl font-semibold text-white hover:bg-white/20 transition-all duration-300">
+          <span className="flex items-center gap-3">
+            <span className="text-lg">📋</span>
+            Download Curriculum
+            <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </div>
-      </section>
+  {/* Scroll Indicator */}
+  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+      <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+    </div>
+  </div>
+</section>
+
 
       {/* Philosophy Section */}
       <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-purple-50/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-indigo-50/50"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-20">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full text-purple-700 font-medium mb-6">
-                <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full text-blue-700 font-medium mb-6">
+                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                 Our Foundation
               </div>
               <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-6">
@@ -276,7 +280,7 @@ export default function Training() {
       {/* Flagship Program Section */}
       <section className="py-24 relative overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -284,12 +288,12 @@ export default function Training() {
             {/* Section Header */}
             <div className="text-center mb-20">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white font-medium mb-6">
-                <span className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
+                <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
                 Campus to Corporate Program
               </div>
               <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 360° Industry Readiness
-                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-teal-400 bg-clip-text text-transparent">
                   Framework
                 </span>
               </h2>
@@ -331,7 +335,7 @@ export default function Training() {
 
                     {/* Selection Indicator */}
                     {activeTab === key && (
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
                         <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
@@ -437,7 +441,7 @@ export default function Training() {
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.3),transparent_50%)]"></div>
           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,rgba(255,119,198,0.3),transparent_50%)]"></div>
@@ -449,7 +453,7 @@ export default function Training() {
             <div className="mb-12">
               <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
                 Ready to Transform Your
-                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-teal-400 bg-clip-text text-transparent">
                   Institution?
                 </span>
               </h2>
@@ -478,7 +482,7 @@ export default function Training() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/contact">
-                <button className="group relative px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-bold text-white shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 hover:scale-105 transform text-lg">
+                <button className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl font-bold text-white shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 transform text-lg">
                   <span className="relative z-10 flex items-center gap-3">
                     <span className="text-xl">📞</span>
                     Schedule a Consultation
@@ -486,7 +490,7 @@ export default function Training() {
                       <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
               </Link>
               <button className="group px-10 py-5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl font-bold text-white hover:bg-white/20 transition-all duration-300 text-lg">

@@ -14,20 +14,14 @@ export default function Layout() {
   // Detect scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -42,17 +36,20 @@ export default function Layout() {
   return (
     <div>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ease-in-out 
-          dark:bg-black dark:text-white bg-[#f86a04] shadow-lg
-          ${isScrolled ? "mt-24 mx-8 rounded-3xl scale-[0.97]" : "mt-0 mx-0 scale-100"}
+        className={`sticky top-0 z-50 transition-all duration-500 ease-in-out backdrop-blur-md
+          ${isScrolled
+            ? "mt-4 mx-8 rounded-3xl scale-[0.97] bg-[#f86a04]/70 shadow-2xl backdrop-saturate-150"
+            : "mt-0 mx-0 scale-100 bg-[#f86a04] shadow-lg"
+          }
+          dark:bg-black/70 dark:backdrop-blur-md
         `}
       >
         <div className="container flex justify-between h-16 mx-auto px-2">
           {/* Logo */}
           <div className="flex items-center">
             <NavLink to="/" aria-label="Back to homepage" className="flex items-center p-2">
-              <h1 className="text-2xl font-bold text-primary">
-                KAR <span className="text-white">International InfoTech</span>
+              <h1 className="text-2xl font-bold text-white">
+                KAR <span className="text-[#f86a04]">International InfoTech</span>
               </h1>
             </NavLink>
           </div>
@@ -64,8 +61,10 @@ export default function Layout() {
                 <NavLink
                   to={link.path}
                   className={({ isActive }) =>
-                    `flex items-center px-4 -mb-1 font-bold hover:text-primary ${
-                      isActive ? "text-primary font-semibold border-b-4 border-primary" : ""
+                    `flex items-center px-4 -mb-1 font-bold transition-colors duration-200 ${
+                      isActive
+                        ? "text-[#f86a04] border-b-4 border-[#f86a04]"
+                        : "text-white hover:text-[#f86a04]"
                     }`
                   }
                 >
@@ -87,7 +86,7 @@ export default function Layout() {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="w-6 h-6 dark:text-white"
+              className="w-6 h-6 text-white"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -96,15 +95,17 @@ export default function Layout() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden">
-            <ul className="space-y-2 p-4 dark:bg-black dark:text-white">
+          <div className="lg:hidden bg-[#f86a04]/90 backdrop-blur-lg">
+            <ul className="space-y-2 p-4">
               {navLinks.map((link) => (
                 <li key={link.path}>
                   <NavLink
                     to={link.path}
                     className={({ isActive }) =>
-                      `block px-4 py-2 hover:text-primary ${
-                        isActive ? "text-primary font-semibold" : ""
+                      `block px-4 py-2 transition-colors duration-200 ${
+                        isActive
+                          ? "text-[#f86a04] font-semibold"
+                          : "text-white hover:text-[#f86a04]"
                       }`
                     }
                   >

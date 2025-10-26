@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 export default function Servicesother() {
   return (
-    <div className="bg-gray-200 py-8">
+    <div className="bg-black py-8">
       {/* First Section */}
       <section className="flex flex-col pb-10 md:flex-row justify-around items-center mx-4 h-full space-y-4 md:space-y-0 md:space-x-8">
         <div className="text-center space-y-10 md:text-left">
           <h1 className="text-5xl font-bold text-[#f86a04]">
             Giving you the <br />
-            <span className="text-black block mt-6">EDGE!</span>
+            <span className="text-white block mt-6">EDGE!</span>
           </h1>
 
           <h5 className="text-lg font-light mt-2">

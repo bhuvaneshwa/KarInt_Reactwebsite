@@ -14,7 +14,7 @@ export default function Clients() {
   return (
     <section className="py-16 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6">Our Clients</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-[#f86a04]">Our Clients</h2>
         <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
           We’re proud to have partnered with leading brands and businesses across industries.
         </p>
@@ -36,7 +36,7 @@ export default function Clients() {
           ))}
         </div>
 
-        <p className="mt-12 text-gray-500 text-sm">
+        <p className="mt-12 text-sm text-[#f86a04]">
           Trusted by <span className="text-primary font-semibold">100+ global companies</span>.
         </p>
       </div>
