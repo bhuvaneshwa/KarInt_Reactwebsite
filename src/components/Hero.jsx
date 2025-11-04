@@ -159,7 +159,7 @@ export default function Hero() {
 
               {/* Center “Hover me” text */}
               <div className={`hover-text ${hovered ? "hide" : ""}`}>
-                Hover Me
+               Click Me
               </div>
 
               {/* 8 Labels */}

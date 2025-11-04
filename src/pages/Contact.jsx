@@ -69,8 +69,8 @@ export default function Contact() {
       <div className="bg-black text-white px-4 py-12 sm:px-8 lg:px-20 lg:py-20">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase leading-tight">
-            Let&apos;s take your <span className="text-primary italic">business</span> <br />
-            to places, <span className="text-primary italic">together!</span>
+            Let&apos;s take your <span className="text-[#f86a04] italic">business</span> <br />
+            to <span className="text-[#f86a04] italic">places, together!</span>
           </h1>
           <h4 className="mt-4 sm:mt-6 text-base sm:text-lg">
             We work with you to nurture your business toward success faster.
@@ -85,7 +85,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="firstName"
-                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-gray-600 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
+                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-black focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
                   placeholder="First Name"
                   value={formData.firstName}
                   onChange={handleChange}
@@ -95,7 +95,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="lastName"
-                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-gray-600 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
+                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-black focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
                   placeholder="Last Name"
                   value={formData.lastName}
                   onChange={handleChange}
@@ -105,7 +105,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="phone"
-                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-gray-600 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
+                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-black focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
@@ -115,7 +115,7 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-gray-600 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
+                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-black focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
@@ -125,7 +125,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="companyName"
-                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-gray-600 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
+                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-black focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
                   placeholder="Company Name"
                   value={formData.companyName}
                   onChange={handleChange}
@@ -158,7 +158,7 @@ export default function Contact() {
                 <textarea
                   id="message"
                   rows="5"
-                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-gray-600 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
+                  className="w-full p-3 bg-gray-200 border border-primary rounded text-black placeholder:text-black focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleChange}

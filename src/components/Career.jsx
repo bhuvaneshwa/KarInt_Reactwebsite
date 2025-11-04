@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Career() {
-  const API_URL = "/api/apply"; // update if needed
+  const API_URL = "/api/careers/apply"; // update if needed
 
   // Jobs now include description, responsibilities and skills
   const jobOpenings = [

@@ -51,6 +51,9 @@ import SocialMediaManagement from "./pages/services/SocialMediaManagement";
 import EcommerceSolutions from "./pages/services/EcommerceSolutions";
 import MobileAppDevelopment from "./pages/services/MobileAppDevelopment";
 
+
+import Portfolio from "./components/Portfolio";
+
 export default function App() {
   return (
     <ThemeProvider defaultThemeName="light">
@@ -79,6 +82,7 @@ export default function App() {
                       <Route path="caseStudies" element={<CaseStudies />} />
                       <Route path="productUpdates" element={<ProductUpdates />} />
 
+                      <Route path="portfolio" element={<Portfolio />} />
                       {/* 🧩 Product Details Routes */}
                       <Route path="products/erp" element={<ERP />} />
                       <Route path="products/hrms" element={<HRMS />} />

@@ -33,6 +33,7 @@ export default function Footer() {
                 <li><Link to="/customSolutions" className="hover:text-[#f86a04] transition">Custom Solutions</Link></li>
                 <li><Link to="/caseStudies" className="hover:text-[#f86a04] transition">Case Studies</Link></li>
                 <li><Link to="/productUpdates" className="hover:text-[#f86a04] transition">Product Updates</Link></li>
+                <li><Link to="/portfolio" className="hover:text-[#f86a04] transition">Portfolio</Link></li>
               </ul>
             </div>
 

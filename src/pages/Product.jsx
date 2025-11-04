@@ -118,7 +118,7 @@ export default function Product() {
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
               Products Built for 
-              <span className=" bg-clip-text text-transparent">
+              <span className=" bg-clip-text  text-[#f86a04] mx-2">
                 Growth & Innovation
               </span>
             </h1>
@@ -129,7 +129,7 @@ export default function Product() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link to="/contact">
-                <button className="group px-8 py-4 bg-gradient-to-r from-primary to-yellow-400 text-black rounded-xl font-bold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <button className="group px-8 py-4 bg-black text-white rounded-xl font-bold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                   <span className="flex items-center gap-2">
                     Request a Demo
                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,9 +180,9 @@ export default function Product() {
                   placeholder="Search products..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300"
+                  className="w-full pl-12 pr-4 py-3 border text-black border-gray-500 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300"
                 />
-                <svg className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <svg className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-900" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
                 </svg>
               </div>
@@ -195,8 +195,8 @@ export default function Product() {
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                       selectedCategory === category
-                        ? "bg-primary text-black shadow-lg scale-105"
-                        : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                        ? "bg-[#f86a04] text-white shadow-lg scale-105"
+                        : "bg-white text-gray-800 hover:bg-gray-100 border border-gray-600"
                     }`}
                   >
                     {category}
