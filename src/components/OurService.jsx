@@ -11,20 +11,33 @@ export default function OurService() {
       features: ["Custom frontends", "API-driven backends", "Performance & SEO"],
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M3 6h18M3 18h18" />
+          <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
         </svg>
       ),
     },
     {
       id: 2,
-      title: "UI / UX Design",
+      title: "Digital Marketing",
       desc:
-        "Beautiful, functional, and user-centered designs that make your products stand out and engage users effectively.",
-      cta: "View Design",
-      features: ["Design systems", "Prototypes & testing", "Accessible UI"],
+        "Strategic digital marketing solutions to boost your online presence, engage your audience, and drive measurable growth.",
+      cta: "Learn More",
+      features: ["SEO & SEM", "Social Media Marketing", "Content Strategy"],
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M12 2l3 7h7l-5.5 4 2 7L12 16 4.5 20l2-7L1 9h7l3-7z" />
+          <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+    },
+    {
+      id: 3,
+      title: "E-Commerce Solutions",
+      desc:
+        "Complete e-commerce platforms with secure payments, inventory management, and seamless shopping experiences.",
+      cta: "Get Started",
+      features: ["Payment Integration", "Product Management", "Analytics & Reports"],
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
     },
@@ -161,35 +174,33 @@ export default function OurService() {
                     </li>
                   ))}
                 </ul>
-
-                {/* CTA */}
-                <div className="flex items-center justify-between">
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#f86a04] hover:text-[#ffb347] transition-colors"
-                    onClick={() => console.log("CTA:", s.title)}
-                  >
-                    {s.cta}
-                    <svg
-                      className="w-4 h-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 12h14M12 5l7 7-7 7"
-                      />
-                    </svg>
-                  </button>
-
-                  <div className="text-sm text-gray-400">Trusted by clients</div>
-                </div>
               </div>
             </article>
           ))}
+        </div>
+
+        {/* Our Services Button */}
+        <div className="mt-12 text-center">
+          <button
+            type="button"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#f86a04] to-[#ff8c42] hover:from-[#ff8c42] hover:to-[#f86a04] text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_30px_rgba(248,106,4,0.4)] transform hover:scale-105 transition-all duration-300"
+            onClick={() => window.location.href = '/services'}
+          >
+            <span className="text-lg">Our Services</span>
+            <svg
+              className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

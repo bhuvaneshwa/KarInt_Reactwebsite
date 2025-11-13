@@ -11,24 +11,27 @@ export default function Servicesother() {
             <span className="text-white block mt-6">EDGE!</span>
           </h1>
 
-          <h5 className="text-lg font-light mt-2">
-            We generate value for your business by offering:
-          </h5>
+         <h5 className="text-lg font-light mt-2 bg-[#f86a04] text-white inline-block px-3 rounded">
+  We generate value for your business by offering:
+</h5>
+
         </div>
 
         <div className="hidden md:block w-px bg-gray-400 h-24"></div> {/* Divider */}
+<div className="text-center md:text-left bg-[#f86a04] text-white p-4 rounded-lg inline-block">
+  <h1 className="text-2xl font-semibold leading-snug">
+    Customized Tools <br />
+    Expert Insights <br />
+    High Quality
+  </h1>
+</div>
 
-        <div className="text-center md:text-left">
-          <h1 className="text-2xl font-semibold">
-            <span className="text-[#f86a04]">Customized Tools</span> <br /> Expert Insights <br /> High Quality
-          </h1>
-        </div>
+<div className="text-center md:text-left mt-2">
+  <p className="text-xl font-light text-white">
+    Accelerated delivery to cut down project timelines
+  </p>
+</div>
 
-        <div className="text-center md:text-left">
-          <p className="text-xl font-light">
-            Accelerated delivery to cut down project timelines
-          </p>
-        </div>
       </section>
 
       {/* Second Section */}
@@ -52,7 +55,7 @@ export default function Servicesother() {
               Let us know how we can enable you to achieve success faster.
             </h4>
             <Link to="/contact">
-              <button className="mt-4 px-6 py-2 bg-[#f86a04] text-white font-semibold hover:bg-[#e65c00] transition duration-300">
+              <button className="mt-4 px-6 py-2 rounded-full bg-[#f86a04] text-white font-semibold hover:bg-[#e65c00] transition duration-300">
                 Contact us
               </button>
             </Link>

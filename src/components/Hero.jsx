@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
-  const [hovered, setHovered] = useState(false);
-  const toggleHover = () => setHovered((s) => !s);
 
   return (
-    <section className="relative bg-[#0d0d0d] text-white min-h-screen overflow-hidden">
+    <section className="relative bg-black text-white min-h-screen overflow-hidden">
       <style>
         {`
         @keyframes spinEarth {
@@ -20,26 +17,51 @@ export default function Hero() {
         }
 
         .earth-sun {
-          background: radial-gradient(circle at 30% 30%, #ff9b00 0%, #f86a04 40%, #3b0000 100%);
+          background: 
+            radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, transparent 5%),
+            radial-gradient(circle at 30% 30%, #ffb347 0%, #ff9b00 25%, #f86a04 50%, #d45a00 75%, #1a0000 100%);
           background-blend-mode: screen;
           animation: spinEarth 40s linear infinite, pulseGlow 6s ease-in-out infinite;
           filter: saturate(1.4);
+          position: relative;
+          transform-style: preserve-3d;
+          box-shadow: 
+            inset -40px -40px 80px rgba(0, 0, 0, 0.5),
+            inset 20px 20px 60px rgba(255, 180, 100, 0.3),
+            0 0 120px 30px rgba(248, 106, 4, 0.35),
+            0 0 200px 60px rgba(248, 106, 4, 0.15);
+        }
+        
+        .earth-sun::before {
+          content: '';
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          width: 35%;
+          height: 35%;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+          border-radius: 50%;
+          filter: blur(20px);
+          animation: shimmer 4s ease-in-out infinite;
+        }
+        
+        .earth-sun::after {
+          content: '';
+          position: absolute;
+          bottom: 15%;
+          right: 15%;
+          width: 40%;
+          height: 40%;
+          background: radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, transparent 70%);
+          border-radius: 50%;
+          filter: blur(25px);
+        }
+        
+        @keyframes shimmer {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 0.9; transform: scale(1.1); }
         }
 
-        .ray {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          width: 14px;
-          height: 130%;
-          background: linear-gradient(180deg, rgba(248,106,4,0.5), rgba(255,200,100,0));
-          transform-origin: center -50%;
-          border-radius: 6px;
-          opacity: 0;
-          filter: blur(8px);
-          transition: opacity 350ms ease, transform 350ms ease;
-        }
-        .ray.show { opacity: 1; transform: scale(1.08) rotate(var(--r)); }
 
         .earth-label {
           position: absolute;
@@ -50,36 +72,21 @@ export default function Hero() {
           color: #fff;
           font-size: 0.9rem;
           border-radius: 9999px;
-          opacity: 0;
-          transform: translateY(6px) scale(0.95);
-          transition: opacity 400ms ease, transform 400ms ease;
+          opacity: 1;
+          transform: translateY(0) scale(1);
           white-space: nowrap;
         }
-        .earth-label.show { opacity: 1; transform: translateY(0) scale(1); }
 
-        .hover-text {
-          position: absolute;
-          color: #ffffff;
-          font-size: 1.2rem;
-          letter-spacing: 1px;
-          font-weight: 500;
-          text-transform: uppercase;
-          transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .hover-text.hide {
-          opacity: 0;
-          transform: scale(0.9);
-        }
 
         @media (max-width: 767px) {
-          .ray, .earth-label { display: none; }
+          .earth-label { display: none; }
         }
       `}
       </style>
 
-      <div className="container mx-auto flex flex-col md:flex-row items-start justify-between px-6 md:px-12 pt-32 pb-16">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-12 pt-2 pb-16 min-h-screen">
         {/* Left Content */}
-        <div className="w-full md:w-1/2 text-left">
+        <div className="w-full md:w-1/2 text-left flex flex-col justify-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-8">
             Igniting Growth with{" "}
             <span className="text-[#f86a04]">Innovation and Technology</span>
@@ -112,55 +119,42 @@ export default function Hero() {
         </div>
 
         {/* Right Sun-Like Earth */}
-        <div className="hidden md:flex justify-center items-start w-full md:w-1/2 mt-12 md:mt-0">
-          <div
-            className="relative w-[550px] h-[550px] flex justify-center items-center mt-10"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-          >
-            <div
-              role="button"
-              tabIndex={0}
-              onFocus={() => setHovered(true)}
-              onBlur={() => setHovered(false)}
-              onClick={toggleHover}
-              className="relative w-[480px] h-[480px] rounded-full flex justify-center items-center cursor-pointer"
-              style={{
-                transition: "transform 300ms ease",
-                transform: hovered ? "scale(1.05)" : "scale(1)",
-              }}
-            >
-              {/* Rays */}
-              {[...Array(16)].map((_, i) => (
-                <span
-                  key={i}
-                  className={`ray ${hovered ? "show" : ""}`}
-                  style={{
-                    transform: `rotate(${i * 22.5}deg)`,
-                    ["--r"]: `${i * 22.5}deg`,
-                    transitionDelay: `${i * 20}ms`,
-                    height: `${100 + i * 4}%`,
-                  }}
-                />
-              ))}
-
-              {/* Sun-like surface */}
+        <div className="hidden md:flex justify-center items-center w-full md:w-1/2">
+          <div className="relative w-[550px] h-[550px] flex justify-center items-center">
+            <div className="relative w-[480px] h-[480px] rounded-full flex justify-center items-center">
+              {/* 3D Sphere */}
               <div
-                className="earth-sun rounded-full border-4 border-[#f86a04]/40"
+                className="earth-sun rounded-full"
                 style={{
                   width: "420px",
                   height: "420px",
-                  boxShadow: hovered
-                    ? "0 0 160px 40px rgba(248,106,4,0.4)"
-                    : "0 0 80px 20px rgba(248,106,4,0.25)",
-                  transition: "box-shadow 400ms ease",
+                  transform: "perspective(1000px) rotateX(5deg) rotateY(-5deg)",
+                  border: "2px solid rgba(248, 106, 4, 0.3)",
                 }}
               />
-
-              {/* Center “Hover me” text */}
-              <div className={`hover-text ${hovered ? "hide" : ""}`}>
-               Click Me
-              </div>
+              
+              {/* Orbital Ring */}
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: "500px",
+                  height: "500px",
+                  border: "2px solid rgba(248, 106, 4, 0.2)",
+                  transform: "perspective(1000px) rotateX(75deg)",
+                  animation: "spin 20s linear infinite",
+                }}
+              />
+              
+              {/* Inner Glow Ring */}
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: "380px",
+                  height: "380px",
+                  border: "1px solid rgba(255, 180, 100, 0.3)",
+                  boxShadow: "inset 0 0 40px rgba(248, 106, 4, 0.4)",
+                }}
+              />
 
               {/* 8 Labels */}
               {[
@@ -175,7 +169,7 @@ export default function Hero() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`earth-label ${hovered ? "show" : ""}`}
+                  className="earth-label"
                   style={{
                     position: "absolute",
                     top: item.top,

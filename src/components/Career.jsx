@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Career() {
@@ -71,6 +71,10 @@ export default function Career() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [statusMessage, setStatusMessage] = useState(null);
 
+  // refs for focus management
+  const nameInputRef = useRef(null);
+  const detailsCloseBtnRef = useRef(null);
+
   const openApply = (job) => {
     setSelectedJob(job || null);
     setIsApplyModalOpen(true);
@@ -99,6 +103,14 @@ export default function Career() {
   };
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  // helpful: format size
+  const formatBytes = (bytes) => {
+    if (!bytes) return "0 B";
+    const sizes = ["B", "KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(1024));
+    return `${parseFloat((bytes / Math.pow(1024, i)).toFixed(1))} ${sizes[i]}`;
+  };
 
   const handleFileChange = (e) => {
     setFileError("");
@@ -192,10 +204,42 @@ export default function Career() {
     xhr.send(fd);
   };
 
+  // handle Esc key to close modals
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        if (isApplyModalOpen) closeApplyModal();
+        if (isDetailsOpen) closeDetailsModal();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isApplyModalOpen, isDetailsOpen]);
+
+  // disable body scroll while modal open
+  useEffect(() => {
+    if (isApplyModalOpen || isDetailsOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev || "";
+      };
+    }
+  }, [isApplyModalOpen, isDetailsOpen]);
+
+  // focus first input when apply modal opens
+  useEffect(() => {
+    if (isApplyModalOpen) {
+      setTimeout(() => {
+        nameInputRef.current?.focus();
+      }, 0);
+    }
+  }, [isApplyModalOpen]);
+
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
       {/* Hero */}
-      <header className="relative bg-neutral-900/95 text-white">
+      <header className="relative bg-black text-white">
         <div className="relative max-w-7xl mx-auto px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
@@ -309,15 +353,27 @@ export default function Career() {
 
       {/* Details Modal */}
       {isDetailsOpen && selectedJob && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4" aria-hidden={!isDetailsOpen}>
           <div className="absolute inset-0 bg-black/50" onClick={closeDetailsModal} />
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl p-6 z-10 overflow-y-auto max-h-[85vh]">
+          <div
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl p-6 z-10 overflow-y-auto max-h-[85vh]"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="details-title"
+          >
             <header className="flex items-start justify-between mb-4">
               <div>
-                <h3 className="text-2xl font-bold">{selectedJob.title}</h3>
+                <h3 id="details-title" className="text-2xl font-bold">{selectedJob.title}</h3>
                 <p className="text-sm text-gray-500 mt-1">{selectedJob.location} • {selectedJob.type}</p>
               </div>
-              <button onClick={closeDetailsModal} className="text-gray-500 hover:text-gray-700" aria-label="Close">✕</button>
+              <button
+                ref={detailsCloseBtnRef}
+                onClick={closeDetailsModal}
+                className="text-gray-500 hover:text-gray-700"
+                aria-label="Close"
+              >
+                ✕
+              </button>
             </header>
 
             <section className="mb-4">
@@ -353,44 +409,78 @@ export default function Career() {
 
       {/* Apply Modal */}
       {isApplyModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4" aria-hidden={!isApplyModalOpen}>
           <div className="absolute inset-0 bg-black/50" onClick={closeApplyModal} />
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 z-10">
+          <div
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 z-10"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="apply-title"
+          >
             <header className="flex items-start justify-between">
               <div>
-                <h4 className="text-xl font-bold">{selectedJob ? `Apply — ${selectedJob.title}` : "Send Resume"}</h4>
+                <h4 id="apply-title" className="text-xl font-bold">{selectedJob ? `Apply — ${selectedJob.title}` : "Send Resume"}</h4>
                 <p className="text-sm text-gray-500 mt-1">Attach your resume (PDF / DOC / DOCX) and a short message. We will follow up via email.</p>
               </div>
               <button onClick={closeApplyModal} className="text-gray-400 hover:text-gray-600" aria-label="Close">✕</button>
             </header>
 
-            <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+            <form onSubmit={handleSubmit} className="mt-4 space-y-4" aria-describedby="apply-note">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <label className="flex flex-col">
                   <span className="text-sm text-gray-600 mb-1">Full name</span>
-                  <input required name="name" value={form.name} onChange={handleChange} placeholder="Full name" className="px-4 py-2 border rounded-md w-full" />
+                  <input
+                    required
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder="Full name"
+                    className="px-4 py-2 border rounded-md w-full"
+                    ref={nameInputRef}
+                    aria-required="true"
+                  />
                 </label>
                 <label className="flex flex-col">
                   <span className="text-sm text-gray-600 mb-1">Email address</span>
-                  <input required name="email" value={form.email} onChange={handleChange} type="email" placeholder="Email address" className="px-4 py-2 border rounded-md w-full" />
+                  <input
+                    required
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    type="email"
+                    placeholder="Email address"
+                    className="px-4 py-2 border rounded-md w-full"
+                    aria-required="true"
+                  />
                 </label>
               </div>
 
               <label className="flex flex-col">
                 <span className="text-sm text-gray-600 mb-1">Resume (PDF / DOC / DOCX) — max 5MB</span>
-                <input
-                  type="file"
-                  accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                  onChange={handleFileChange}
-                  className="w-full text-sm"
-                />
-                {file && <div className="mt-2 text-sm text-gray-700">Selected: <span className="font-medium">{file.name}</span> ({Math.round(file.size / 1024)} KB)</div>}
+                <label htmlFor="resume-upload" className="inline-flex items-center gap-2 cursor-pointer text-sm text-gray-700">
+                  <input
+                    id="resume-upload"
+                    type="file"
+                    accept=".pdf, .doc, .docx, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    onChange={handleFileChange}
+                    className="hidden"
+                    disabled={submitting}
+                  />
+                  <span className="px-3 py-1 border rounded-md bg-white/50">Choose file</span>
+                  <span className="text-xs text-gray-500">or drop here</span>
+                </label>
+
+                {file && (
+                  <div className="mt-2 text-sm text-gray-700">
+                    Selected: <span className="font-medium">{file.name}</span> ({formatBytes(file.size)})
+                  </div>
+                )}
                 {fileError && <div className="mt-2 text-sm text-red-500">{fileError}</div>}
               </label>
 
               <label className="flex flex-col">
                 <span className="text-sm text-gray-600 mb-1">Short message (optional)</span>
-                <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Short message (optional)" className="px-4 py-2 border rounded-md w-full"></textarea>
+                <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Short message (optional)" className="px-4 py-2 border rounded-md w-full" />
               </label>
 
               {uploadProgress > 0 && (
@@ -403,9 +493,9 @@ export default function Career() {
               )}
 
               <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-500">We will keep your application private.</div>
+                <div id="apply-note" className="text-sm text-gray-500">We will keep your application private.</div>
                 <div className="flex items-center gap-3">
-                  <button type="button" onClick={closeApplyModal} className="px-4 py-2 rounded-md border">Cancel</button>
+                  <button type="button" onClick={closeApplyModal} className="px-4 py-2 rounded-md border" disabled={submitting}>Cancel</button>
                   <button type="submit" disabled={submitting} className="px-4 py-2 rounded-md bg-[#f86a04] text-black font-semibold">
                     {submitting ? "Sending..." : "Submit Application"}
                   </button>

@@ -1,0 +1,9 @@
+{
+  "name": "kar-serverless-api",
+  "version": "1.0.0",
+  "description": "Serverless API for KAR International contact form",
+  "main": "send-email.js",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  }
+}

@@ -1,7 +1,7 @@
 import Founder from "../components/Founder";
 import Testimonial from "../components/Testimonial";
 import VisionMission from "../components/VisionMission";
-import CountUp from 'react-countup';
+
 
 export default function About() {
   return (
@@ -51,6 +51,8 @@ export default function About() {
 
       {/* Additional Sections */}
       <VisionMission />
+    
+
       <Founder />
       <Testimonial />
     </div>

@@ -152,7 +152,7 @@ export default function Services() {
                   to="/contact"
                   className="rounded-xl bg-[#f86a04] px-5 py-3 text-white font-medium shadow hover:bg-[#e65c00] focus:outline-none focus:ring-2 focus:ring-[#f86a04]/40"
                 >
-                  Get a Free Quote
+                  Get your Quote
                 </Link>
                 <Link
                   to="/portfolio"
@@ -174,8 +174,8 @@ export default function Services() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="relative"
             >
-              <div className="aspect-[4/3] w-full rounded-3xl bg-white shadow-xl ring-1 ring-black/5 p-2">
-                <div className="h-full w-full rounded-2xl bg-[url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center" />
+              <div className="aspect-[4/3] w-full rounded-sm  bg-white shadow-xl ring-1 ring-black/5 p-2">
+                <div className="h-full w-full  bg-[url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center" />
               </div>
             </motion.div>
           </motion.div>
