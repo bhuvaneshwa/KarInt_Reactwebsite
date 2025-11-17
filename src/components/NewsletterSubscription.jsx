@@ -53,8 +53,8 @@ export default function NewsletterSubscription() {
   };
 
   return (
-    <section className="py-12 px-4">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-12 px-4 ">
+      <div className="max-w-5xl mx-auto ">
         <form
           onSubmit={handleSubscribe}
           className="relative bg-[#0b0b0b] border border-white/6 rounded-2xl p-6 sm:p-8 shadow-md"
