@@ -16,10 +16,6 @@ import CustomSolutions from "./components/CustomSolutions";
 import CaseStudies from "./components/CaseStudies";
 import ProductUpdates from "./components/ProductUpdates";
 import Training from "./components/Training";
-import PlacementTraining from "./pages/training/PlacementTraining";
-import OnlineTraining from "./pages/training/OnlineTraining";
-import OurBlog from "./components/OurBlog";
-import FAQ from "./components/FAQ";
 
 import { ThemeProvider } from "./theme";
 
@@ -64,15 +60,12 @@ export default function App() {
                     <Route path="other/team" element={<Team />} />
                     <Route path="careers" element={<Career />} />
                     <Route path="terms" element={<Terms />} />
-                    <Route path="training-programs" element={<PlacementTraining />} />
-                    <Route path="training/online" element={<OnlineTraining />} />
+                    <Route path="training-programs" element={<Training />} />
                     <Route path="privacypolicy" element={<PrivacyPolicy />} />
                     <Route path="customSolutions" element={<CustomSolutions />} />
                     <Route path="caseStudies" element={<CaseStudies />} />
                     <Route path="productUpdates" element={<ProductUpdates />} />
 
-                    <Route path="ourBlog" element={<OurBlog />} />  
-                    <Route path="faq" element={<FAQ />} />
                     <Route path="portfolio" element={<Portfolio />} />
                     {/* 🧩 Product Details Routes */}
                     <Route path="products/erp" element={<ERP />} />

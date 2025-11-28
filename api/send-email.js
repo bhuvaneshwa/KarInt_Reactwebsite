@@ -42,7 +42,8 @@ module.exports = async (req, res) => {
     const fullName = `${firstName} ${lastName || ''}`.trim();
     const selectedService = option === 'Other' ? otherOption : option;
 
-    const mailOptions = {
+    // Email to company (karinternationalinfotech@gmail.com)
+    const companyMailOptions = {
       from: process.env.EMAIL_USER,
       to: 'karinternationalinfotech@gmail.com',
       replyTo: email,
@@ -115,8 +116,99 @@ module.exports = async (req, res) => {
       `
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    // Confirmation email to user
+    const userMailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Thank you for contacting KAR International InfoTech',
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #f86a04 0%, #e65c00 100%); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+            .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+            .success-icon { font-size: 48px; margin-bottom: 10px; }
+            .message { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4CAF50; }
+            .details { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
+            .field { margin-bottom: 10px; }
+            .label { font-weight: bold; color: #555; display: inline-block; width: 120px; }
+            .value { color: #333; }
+            .footer { text-align: center; margin-top: 20px; color: #888; font-size: 12px; padding: 20px; }
+            .contact-info { background: #fff3e0; padding: 15px; border-radius: 8px; margin-top: 20px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <div class="success-icon">✅</div>
+              <h1 style="margin: 0;">Form Submitted Successfully!</h1>
+              <p style="margin: 10px 0 0 0;">KAR International InfoTech</p>
+            </div>
+            <div class="content">
+              <h2 style="color: #f86a04; margin-top: 0;">Hello ${fullName},</h2>
+              
+              <div class="message">
+                <p style="margin: 0; font-size: 16px; color: #4CAF50; font-weight: bold;">
+                  ✓ Your form has been submitted successfully!
+                </p>
+                <p style="margin: 10px 0 0 0; color: #555;">
+                  Our team will contact you within <strong>24 hours</strong>.
+                </p>
+              </div>
+
+              <p>Thank you for reaching out to us. We have received your inquiry regarding <strong>${selectedService}</strong> and our team is reviewing your message.</p>
+
+              <div class="details">
+                <h3 style="color: #f86a04; margin-top: 0;">Your Submission Details:</h3>
+                <div class="field">
+                  <span class="label">📧 Email:</span>
+                  <span class="value">${email}</span>
+                </div>
+                <div class="field">
+                  <span class="label">📱 Phone:</span>
+                  <span class="value">${phone}</span>
+                </div>
+                ${companyName ? `
+                <div class="field">
+                  <span class="label">🏢 Company:</span>
+                  <span class="value">${companyName}</span>
+                </div>
+                ` : ''}
+                <div class="field">
+                  <span class="label">🎯 Service:</span>
+                  <span class="value">${selectedService}</span>
+                </div>
+              </div>
+
+              <div class="contact-info">
+                <p style="margin: 0 0 10px 0; font-weight: bold; color: #f86a04;">Need immediate assistance?</p>
+                <p style="margin: 5px 0;">
+                  📧 Email: <a href="mailto:karinternationalinfotech@gmail.com">karinternationalinfotech@gmail.com</a>
+                </p>
+                <p style="margin: 5px 0;">
+                  🌐 Website: <a href="https://www.karinternational.com">www.karinternational.com</a>
+                </p>
+              </div>
+
+              <div class="footer">
+                <p>This is an automated confirmation email. Please do not reply to this email.</p>
+                <p style="margin-top: 10px;">© ${new Date().getFullYear()} KAR International InfoTech. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </body>
+        </html>
+      `
+    };
+
+    // Send both emails
+    await Promise.all([
+      transporter.sendMail(companyMailOptions),
+      transporter.sendMail(userMailOptions)
+    ]);
 
     return res.status(200).json({ 
       success: true, 

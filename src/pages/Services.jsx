@@ -10,16 +10,14 @@ export default function Services() {
       name: "Web Development",
       description:
         "We build stunning, fast, and secure websites that help businesses stand out online.",
-      image: "https://source.unsplash.com/600x400/?web-development,code",
-      link: "/services/web-development",
+      image: "/images/services/Web Development.jpg",
     },
     {
       id: 2,
       name: "Graphic Designing",
       description:
         "Creative logos, banners, and designs that make your brand look professional and attractive.",
-      image: "https://source.unsplash.com/600x400/?graphic-design,creative",
-      link: "/services/graphic-designing",
+      image: "/images/services/Graphic Designing.jpg",
     },
     {
       id: 3,
@@ -27,48 +25,35 @@ export default function Services() {
       description:
         "We help businesses grow online with social media, SEO, and ads that bring real results.",
       image:
-        "https://source.unsplash.com/600x400/?digital-marketing,ads,socialmedia",
-      link: "/services/digital-marketing",
+        "/images/services/Digital Marketing.jpg",
     },
     {
       id: 4,
-      name: "Software Development",
+      name: "Custom Software Development",
       description:
         "Custom software solutions tailored to make your business run smoother and smarter.",
-      image: "https://source.unsplash.com/600x400/?software,development,technology",
-      link: "/services/software-development",
+      image: "/images/services/Custom Software Development.jpg",
     },
     {
       id: 5,
-      name: "SEO (Search Engine Optimization)",
-      description:
-        "Want your website to show up on Google? We optimize your site to rank higher and get more visitors.",
-      image: "https://source.unsplash.com/600x400/?seo,search-engine,ranking",
-      link: "/services/seo",
-    },
-    {
-      id: 6,
       name: "Social Media Management",
       description:
         "We manage your social media pages, create engaging content, and help attract more customers.",
-      image: "https://source.unsplash.com/600x400/?social-media,instagram,facebook",
-      link: "/services/social-media-management",
+      image: "/images/services/Social Media Management.jpg",
     },
     {
-      id: 7,
+      id: 6,
       name: "E-commerce Solutions",
       description:
         "Start selling online with an easy-to-use and beautifully designed online store.",
-      image: "https://source.unsplash.com/600x400/?ecommerce,shopping,online-store",
-      link: "/services/ecommerce-solutions",
+      image: "/images/services/E-commerce Solutions.jpg",
     },
     {
-      id: 8,
+      id: 7,
       name: "Mobile App Development",
       description:
         "Get your own Android or iOS app that works smoothly and keeps your users engaged.",
-      image: "https://source.unsplash.com/600x400/?mobile-app,android,ios",
-      link: "/services/mobile-app-development",
+      image: "/images/services/Mobile App Development.jpg",
     },
   ];
 
@@ -192,11 +177,11 @@ export default function Services() {
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Our <span className="text-[#f86a04]">Services</span>
         </h2>
-        <p className="max-w-3xl mb-8">
+        <p className="max-w-7xl mb-8">
           Pick exactly what you need—design, development, marketing, or an end-to-end product team. We plug into your roadmap and ship value fast.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
             <motion.div
               key={service.id}
@@ -204,21 +189,20 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group rounded-2xl shadow-lg p-4 hover:shadow-xl border border-gray-100"
+              className="group rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl border border-gray-100 transition-all duration-300 hover:-translate-y-1"
             >
-              <img
-                src={service.image}
-                alt={service.name}
-                className="w-full h-44 object-cover rounded-xl mb-4"
-              />
-              <h3 className="text-lg font-semibold">{service.name}</h3>
-              <p className="text-gray-500 text-sm mt-1 mb-4">{service.description}</p>
-              <Link
-                to={service.link}
-                className="inline-flex items-center justify-center rounded-lg bg-[#f86a04] text-white px-4 py-2 font-medium hover:bg-[#e65c00]"
-              >
-                Know More
-              </Link>
+              <div className="relative overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.name}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-bold mb-2 text-gray-800">{service.name}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -11,7 +11,7 @@ export default function Product() {
       name: "Billing Software",
       description:
         "Simplify invoicing, payments, and financial tracking with a user-friendly billing system tailored for businesses of all sizes.",
-      image: "/src/images/billing.jpg",
+      image: "/src/images/Billing Software.jpg",
       status: "Launching Soon",
       path: "/products/billing",
       category: "Finance",
@@ -59,7 +59,7 @@ export default function Product() {
       name: "CRM (Customer Relationship Management)",
       description:
         "Enhance customer relationships with lead tracking, automated follow-ups, and personalized engagement for better sales growth.",
-      image: "/src/images/crm.jpg",
+      image: "/src/images/Customer Relationship Management.jpg",
       status: "In Development",
       path: "/products/crm",
       category: "Sales",
@@ -322,27 +322,8 @@ export default function Product() {
           )}
         </div>
 
-        {/* Call to Action Section */}
-        <div className="mt-16 bg-gradient-to-r from-primary/10 to-yellow-400/10 rounded-3xl p-8 border border-primary/20">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Ready to Transform Your Business?
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Get started with our comprehensive software solutions. Our team is ready to help you choose the right products for your business needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <button className="px-8 py-3 bg-gradient-to-r from-primary to-yellow-400 text-black font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg">
-                  Schedule Consultation
-                </button>
-              </Link>
-              <button className="px-8 py-3 border-2 border-primary text-primary font-semibold rounded-xl hover:bg-primary hover:text-black transition-all duration-300">
-                Download Brochure
-              </button>
-            </div>
-          </div>
-        </div>
+
+       
         </div>
       </section>
     </div>

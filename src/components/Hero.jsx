@@ -158,7 +158,7 @@ export default function Hero() {
 
               {/* 8 Labels */}
               {[
-                { label: "Cloud Solutions", top: "-40px", left: "50%", transform: "translateX(-50%)" },
+                { label: "Web Development", top: "-40px", left: "50%", transform: "translateX(-50%)" },
                 { label: "AI & Automation", top: "60px", right: "-90px" },
                 { label: "Data Analytics", top: "180px", right: "-110px" },
                 { label: "Cybersecurity", bottom: "180px", right: "-100px" },

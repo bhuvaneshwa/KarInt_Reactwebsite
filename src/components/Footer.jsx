@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import {  Linkedin, Instagram, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -65,35 +66,49 @@ export default function Footer() {
             </div>
 
             {/* Social Media */}
-            <div className="text-center sm:text-left">
-              <h3 className="uppercase text-[#f86a04] font-semibold mb-3 text-sm md:text-base">Follow Us</h3>
-              <ul className="space-y-2 flex flex-col items-center sm:items-start">
-                <li>
-                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#f86a04] transition">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C3.34 3.5 2 4.84 2 6.48s1.34 2.98 2.98 2.98..."/></svg>
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#f86a04] transition">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.373 0 12..."/></svg>
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#f86a04] transition">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5..."/></svg>
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:help@karinternationalinfotech.com" className="flex items-center gap-2 hover:text-[#f86a04] transition">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M2.25 4.5A2.25 2.25 0 014.5..."/></svg>
-                    Email
-                  </a>
-                </li>
-              </ul>
-            </div>
+         {/* Social Media */}
+<div className="text-center sm:text-left">
+  <h3 className="uppercase text-[#f86a04] font-semibold mb-3 text-sm md:text-base">Follow Us</h3>
+  <ul className="space-y-3 flex flex-col items-center sm:items-start text-gray-200">
+
+    <li>
+      <a
+        href="https://www.linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 hover:text-[#f86a04] transition"
+      >
+        <Linkedin className="w-5 h-5" />
+        LinkedIn
+      </a>
+    </li>
+
+   
+    <li>
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 hover:text-[#f86a04] transition"
+      >
+        <Instagram className="w-5 h-5" />
+        Instagram
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="mailto:help@karinternationalinfotech.com"
+        className="flex items-center gap-2 hover:text-[#f86a04] transition"
+      >
+        <Mail className="w-5 h-5" />
+        Email
+      </a>
+    </li>
+
+  </ul>
+</div>
+
           </div>
         </div>
 

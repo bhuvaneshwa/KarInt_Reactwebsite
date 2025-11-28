@@ -14,42 +14,42 @@ export default function Testimonial() {
       id: 1,
       text: "KAR International Infotech has transformed our online presence with a professional and seamless website. Their expertise and commitment to quality service are truly commendable.",
       name: "Mr. K Seenivasen – Ex-Army",
-      position: "Owner, KSKN Matrimony",
+      position: "KSKN Matrimony",
       image: Kskb,
     },
     {
       id: 2,
       text: "The team at KAR International Infotech understands client needs perfectly. Their innovative approach and technical skills helped us establish a strong digital presence!",
       name: "Mr. Saravana Kumar Arunachalam",
-      position: "Owner, SK Predictions",
+      position: "SK Predictions",
       image: Pred,
     },
     {
       id: 3,
       text: "Outstanding service! KAR International Infotech delivered our e-commerce platform ahead of schedule with exceptional quality. Their support team is always responsive and helpful.",
       name: "Ms. Priya Rajendran",
-      position: "CEO, Fashion Hub India",
+      position: "Fashion Hub India",
       image: client03,
     },
     {
       id: 4,
       text: "We partnered with KAR International Infotech for our digital marketing campaign, and the results exceeded our expectations. Our online visibility increased by 300%!",
       name: "Mr. Arun Kumar",
-      position: "Marketing Director, TechVision Solutions",
+      position: "TechVision Solutions",
       image: client05,
     },
     {
       id: 5,
       text: "The custom ERP solution developed by KAR International Infotech has streamlined our entire business operations. Highly professional and reliable team!",
       name: "Mr. Vijay Mohan",
-      position: "Managing Director, Global Logistics Ltd",
+      position: "Global Logistics Ltd",
       image: client07,
     },
     {
       id: 6,
       text: "Excellent work on our mobile app development! The team was professional, communicative, and delivered a product that our customers love. Highly recommended!",
       name: "Ms. Sneha Desai",
-      position: "Founder, HealthCare Plus",
+      position: "HealthCare Plus",
       image: client09,
     },
   ];
@@ -116,9 +116,7 @@ export default function Testimonial() {
                 alt={testimonial.name}
                 className="w-16 h-16 rounded-full object-cover mb-2"
               />
-              <p className="text-gray-900 font-semibold text-center">
-                {testimonial.name}
-              </p>
+             
               <p className="text-sm text-gray-500 text-center">
                 {testimonial.position}
               </p>

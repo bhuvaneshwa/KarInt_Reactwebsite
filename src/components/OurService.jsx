@@ -9,6 +9,7 @@ export default function OurService() {
         "Modern, responsive web apps using React, Node, and scalable architectures to help your business grow online.",
       cta: "Explore",
       features: ["Custom frontends", "API-driven backends", "Performance & SEO"],
+      image: "/images/design-html-web-design-template-concept.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -22,6 +23,7 @@ export default function OurService() {
         "Strategic digital marketing solutions to boost your online presence, engage your audience, and drive measurable growth.",
       cta: "Learn More",
       features: ["SEO & SEM", "Social Media Marketing", "Content Strategy"],
+      image: "/images/social-media-marketing-concept-marketing-with-applications (1).jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -35,6 +37,7 @@ export default function OurService() {
         "Complete e-commerce platforms with secure payments, inventory management, and seamless shopping experiences.",
       cta: "Get Started",
       features: ["Payment Integration", "Product Management", "Analytics & Reports"],
+      image: "/images/laptop-excited-adult-buying-home-sitting.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -45,63 +48,16 @@ export default function OurService() {
 
   return (
     <section className="relative py-16 bg-black text-white overflow-hidden">
-      {/* 🌞 Animated Radiating Background */}
-      <div className="absolute inset-0 flex items-center justify-center overflow-visible">
-        <div className="relative w-[1200px] h-[1200px] flex justify-center items-center">
-          {/* Glowing core */}
-          <div className="absolute w-[400px] h-[400px] rounded-full bg-[#f86a04]/50 blur-3xl animate-pulse-soft"></div>
+     
+     
 
-          {/* Rotating aura */}
-          <div className="absolute w-[700px] h-[700px] rounded-full bg-gradient-to-br from-[#f86a04]/20 via-[#ffb347]/10 to-transparent animate-spin-slow blur-2xl"></div>
-
-          {/* Radiating rays */}
-          {[...Array(24)].map((_, i) => (
-            <span
-              key={i}
-              className="absolute w-[2px] h-[130%] bg-gradient-to-b from-[#f86a04]/50 to-transparent rounded-full opacity-60 blur-sm"
-              style={{
-                transform: `rotate(${i * 15}deg)`,
-                transformOrigin: "center",
-                animation: "rayPulse 5s ease-in-out infinite",
-                animationDelay: `${i * 0.2}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      <style>
-        {`
-          @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-
-          @keyframes rayPulse {
-            0%, 100% { opacity: 0.3; transform: scaleY(1) rotate(var(--angle)); }
-            50% { opacity: 0.9; transform: scaleY(1.1) rotate(var(--angle)); }
-          }
-
-          @keyframes pulse-soft {
-            0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.05); opacity: 1; }
-          }
-
-          .animate-spin-slow {
-            animation: spin-slow 90s linear infinite;
-          }
-
-          .animate-pulse-soft {
-            animation: pulse-soft 6s ease-in-out infinite;
-          }
-        `}
-      </style>
+     
 
       {/* 🔹 Main Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="mb-8 text-center">
           <h2 className="text-3xl sm:text-4xl text-[#f86a04] font-extrabold tracking-tight">
-            Our Services
+            Our Servicess
           </h2>
           <p className="mt-2 text-gray-400 max-w-xl mx-auto">
             Solutions crafted to elevate your brand — practical, scalable, and built for growth.
@@ -113,7 +69,7 @@ export default function OurService() {
           {services.map((s, idx) => (
             <article
               key={s.id}
-              className="relative flex gap-6 items-start bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:shadow-[0_0_40px_rgba(248,106,4,0.2)] transform hover:-translate-y-1 transition-all duration-300"
+              className="relative flex flex-col md:flex-row gap-6 items-start bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:shadow-[0_0_40px_rgba(248,106,4,0.2)] transform hover:-translate-y-1 transition-all duration-300"
             >
               {/* Left Accent */}
               <div
@@ -122,15 +78,25 @@ export default function OurService() {
                 }`}
               />
 
-              {/* Icon */}
-              <div className="flex-shrink-0 z-10">
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-tr from-[#f86a04]/20 to-[#f86a04]/5 ring-1 ring-[#f86a04]/30">
-                  <div className="text-[#f86a04]">{s.icon}</div>
+              {/* Image Section */}
+              <div className="relative w-full md:w-64 h-48 md:h-auto flex-shrink-0 overflow-hidden">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 to-transparent"></div>
+                
+                {/* Icon Overlay */}
+                <div className="absolute bottom-4 left-4 md:bottom-auto md:top-4 md:left-4">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-tr from-[#f86a04] to-[#ff8c42] shadow-lg">
+                    <div className="text-white">{s.icon}</div>
+                  </div>
                 </div>
               </div>
 
               {/* Card Content */}
-              <div className="z-10 flex-1">
+              <div className="z-10 flex-1 p-6">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-xl font-semibold leading-tight">
